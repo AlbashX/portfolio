@@ -1,0 +1,4416 @@
+=== PROJECT STRUCTURE ===
+.
+./assets
+./assets/eyes
+./assets/icons
+./assets/images
+./assets/images/portrait-dark-cutout.png
+./assets/images/portrait-dark.png
+./assets/images/portrait-light-cutout.png
+./assets/images/portrait-light.png
+./assets/mask
+./docs
+./index.html
+./master_spec.txt
+./package-lock.json
+./package.json
+./public
+./public/favicon.svg
+./public/resume.pdf
+./README.md
+./src
+./src/components
+./src/css
+./src/css/animations.css
+./src/css/hero.css
+./src/css/responsive.css
+./src/css/style.css
+./src/css/variables.css
+./src/js
+./src/js/animations.js
+./src/js/cursor.js
+./src/js/darkMode.js
+./src/js/hero.js
+./src/js/main.js
+./src/js/reveal.js
+./src/js/scroll.js
+./vite.config.js
+
+=== FILE CONTENTS ===
+
+--- File: ./index.html ---
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syed Albash Ali — Software Engineer</title>
+  <meta name="description"
+    content="Syed Albash is a software engineer. Cinematic personal portfolio covering selected work, resume, and contact." />
+  <link rel="canonical" href="https://example.com/" />
+  <meta property="og:title" content="Syed Albash — Software Engineer" />
+  <meta property="og:description" content="Personal software engineering portfolio of Syed Albash." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Syed Albash — Software Engineer" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Oswald:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+
+<body data-theme="light">
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <main id="main">
+    <section class="hero" id="hero" data-hero-state="LIGHT_DEFAULT" aria-label="Introduction">
+      <!-- Layer 1: Light base portrait -->
+      <img class="hero__portrait hero__portrait--light" src="./assets/images/portrait-light.png"
+        alt="Portrait of Syed Albash wearing glasses" />
+
+      <!-- Layer 2: Dark base portrait (masked reveal) -->
+      <img class="hero__portrait hero__portrait--dark reveal-layer reveal-layer--base"
+        src="./assets/images/portrait-dark.png" alt="" aria-hidden="true" />
+
+      <!-- Layer 10: UI and Navigation -->
+      <header class="hero__header">
+        <a class="site-mark" href="#hero">Syed Albash Ali</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button type="button" class="mode-toggle" id="mode-toggle" aria-pressed="false">
+          Turn dark mode
+        </button>
+      </header>
+
+      <!-- Layer 3: Typography (sandwiched between base and cutouts) -->
+      <h1 class="hero__title fade-up">
+        <span>Software</span>
+        <span>Engineer</span>
+      </h1>
+
+      <!-- Layer 4: Light foreground cutout -->
+      <img class="hero__portrait hero__portrait--cutout" src="./assets/images/portrait-light-cutout.png" alt=""
+        aria-hidden="true" />
+
+      <!-- Layer 5: Dark foreground cutout (masked reveal) -->
+      <img class="hero__portrait hero__portrait--dark-cutout reveal-layer reveal-layer--cutout"
+        src="./assets/images/portrait-dark-cutout.png" alt="" aria-hidden="true" />
+    </section>
+
+    <section class="section" id="about">
+      <p class="section__label fade-up">01 — About</p>
+      <h2 class="fade-up">Who I am</h2>
+      <div class="fade-up delay-1">
+        <p>
+          I am a Software Development Engineer with a focus on building robust, scalable systems across the stack.
+          Currently pursuing my B.Tech in Electronics and Computer Science at Ramdeobaba University, I specialize in
+          crafting everything from seamless frontends and resilient backend APIs to system design and cloud
+          architecture.
+        </p>
+        <p>
+          Whether I am engineering data pipelines for millions of records or building full-stack web platforms, I love
+          turning complex logic into elegant, high-performance solutions.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="section__label fade-up">02 — Skills</p>
+      <h2 class="fade-up">What I work with</h2>
+      <div class="skills-grid fade-up delay-1">
+        <div class="skills-group">
+          <h3 class="skills-group__heading">Machine Learning & Data</h3>
+          <ul class="skills-list" role="list">
+            <li class="skills-list__item">Python</li>
+            <li class="skills-list__item">PyTorch</li>
+            <li class="skills-list__item">FAISS</li>
+            <li class="skills-list__item">LightGBM</li>
+            <li class="skills-list__item">LLMs</li>
+            <li class="skills-list__item">Parquet</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3 class="skills-group__heading">Web & Systems</h3>
+          <ul class="skills-list" role="list">
+            <li class="skills-list__item">JavaScript / React.js</li>
+            <li class="skills-list__item">Node.js / REST APIs</li>
+            <li class="skills-list__item">Java / C++ / Rust</li>
+            <li class="skills-list__item">SQL / NoSQL</li>
+            <li class="skills-list__item">Docker / Linux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <p class="section__label fade-up">03 — Projects</p>
+      <h2 class="fade-up">Selected work</h2>
+      <div class="project-grid fade-up delay-1">
+        <article class="project-card" id="project-amazon-ml">
+          <header class="project-card__header">
+            <span class="project-card__index" aria-hidden="true">01</span>
+            <h3 class="project-card__title">Amazon ML Challenge 2026</h3>
+          </header>
+          <p class="project-card__description">
+            Built an end-to-end entity matching pipeline to resolve noisy business records across three large data
+            sources containing 12.5M+ records using approximate nearest neighbor search.
+          </p>
+          <footer class="project-card__footer">
+            <ul class="project-card__tags" role="list" aria-label="Technologies used">
+              <li>PyTorch</li>
+              <li>FAISS</li>
+              <li>LightGBM</li>
+              <li>Parquet</li>
+            </ul>
+          </footer>
+        </article>
+
+        <article class="project-card" id="project-library">
+          <header class="project-card__header">
+            <span class="project-card__index" aria-hidden="true">02</span>
+            <h3 class="project-card__title">Online Library System</h3>
+          </header>
+          <p class="project-card__description">
+            Built a full-stack platform for authentication, book browsing, inventory management, and borrowing records
+            powered by modular RESTful backend APIs.
+          </p>
+          <footer class="project-card__footer">
+            <ul class="project-card__tags" role="list" aria-label="Technologies used">
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>REST APIs</li>
+              <li>HTML/CSS</li>
+            </ul>
+          </footer>
+        </article>
+
+        <article class="project-card" id="project-smart-cart">
+          <header class="project-card__header">
+            <span class="project-card__index" aria-hidden="true">03</span>
+            <h3 class="project-card__title">IoT Smart Shopping Cart</h3>
+          </header>
+          <p class="project-card__description">
+            Developed an automated retail system integrating RFID and weight sensors for real-time product
+            identification, verification, and automated billing.
+          </p>
+          <footer class="project-card__footer">
+            <ul class="project-card__tags" role="list" aria-label="Technologies used">
+              <li>Python</li>
+              <li>Arduino</li>
+              <li>RFID</li>
+              <li>IoT</li>
+            </ul>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="resume">
+      <p class="section__label fade-up">04 — Resume</p>
+      <h2 class="fade-up">Resume</h2>
+      <a href="/resume.pdf" class="btn btn--primary fade-up delay-1" target="_blank" rel="noopener noreferrer">View /
+        Download Resume</a>
+    </section>
+
+    <section class="section" id="contact">
+      <p class="section__label fade-up">05 — Contact</p>
+      <h2 class="fade-up">Let’s build something.</h2>
+      <ul class="contact-list fade-up delay-1">
+        <li>
+          <a href="mailto:syedalbash9@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+            Email
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/albashx" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-1.85 0-2.58.98-3 1.6V10h-2.76v8.5h2.76v-4.7c0-1.21.23-2.4 1.76-2.4 1.5 0 1.51 1.44 1.51 2.49v4.61h2.75m-11.42 0H4.76V10h2.76v8.5M6.14 4.54a1.6 1.6 0 1 0-.02 3.2 1.6 1.6 0 0 0 .02-3.2z" />
+            </svg>
+            LinkedIn</a>
+        </li>
+        <li>
+          <a href="https://github.com/AlbashX" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+            GitHub</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Syed Albash — software engineer.</p>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
+--- File: ./master_spec.txt ---
+# MASTER PROMPT
+
+## CINEMATIC INTERACTIVE SOFTWARE ENGINEER PORTFOLIO
+
+### Codex IDE — Full Production Build Specification
+
+You are the lead frontend engineer, creative developer, motion designer, interaction engineer, visual systems architect, and production deployment engineer responsible for building my personal portfolio website.
+
+This is a **high-end interactive software-engineering portfolio**, not a template portfolio and not a basic HTML/CSS project.
+
+The website must combine:
+
+* premium personal branding
+* cinematic portrait presentation
+* advanced cursor interaction
+* layered image compositing
+* organic mask-based image reveal
+* a completely separate dark-mode identity transformation
+* polished typography
+* modern motion design
+* responsive engineering
+* accessibility
+* performance optimization
+* SEO
+* production deployment
+
+The final website must feel visually ambitious while remaining professional enough for software-engineering recruiters.
+
+---
+
+# 1. NON-NEGOTIABLE CORE CONCEPT
+
+The entire hero experience is based around **TWO DIFFERENT INTERACTION SYSTEMS**.
+
+Do not combine them.
+
+Do not treat them as the same effect.
+
+Do not implement dark mode as merely an enlarged cursor mask.
+
+The hero contains two aligned portrait images:
+
+### IMAGE 1 — LIGHT IDENTITY
+
+My normal/default portrait.
+
+It contains:
+
+* my original face
+* glasses
+* normal expression
+* current clothing
+* full color
+* normal lighting
+
+This is the permanent base layer of the initial hero.
+
+### IMAGE 2 — DARK IDENTITY
+
+My transformed alter-ego portrait.
+
+It contains:
+
+* no glasses
+* intense/revengeful expression
+* half-mask
+* emerald/green irises
+* dark clothing
+* cinematic shadows
+* dramatic lighting
+* darker overall atmosphere
+* original interpretation inspired by dark antihero aesthetics
+
+The two images MUST be extremely closely aligned.
+
+Maintain:
+
+* identical dimensions
+* identical framing
+* identical crop
+* identical camera angle
+* identical head position
+* identical face position
+* identical body position
+* identical scale
+
+The images must not independently move, scale, rotate, or distort.
+
+---
+
+# 2. CRITICAL INTERACTION MODEL
+
+## SYSTEM A — CURSOR / FACE REVEAL
+
+This is an **interactive reveal**, NOT dark mode.
+
+Initial state:
+
+IMAGE 1 fills the entire hero.
+
+IMAGE 2 is underneath/above as a hidden masked layer.
+
+When the cursor moves across the hero:
+
+IMAGE 2 is revealed ONLY around the cursor.
+
+Everything outside the reveal remains IMAGE 1.
+
+This means:
+
+LIGHT PHOTO
++
+small organic window
+containing DARK PHOTO
+
+The dark image is NOT globally revealed.
+
+The page does NOT switch to dark mode.
+
+The background does NOT globally change.
+
+The hero typography does NOT suddenly switch to a complete dark theme.
+
+The visitor is simply discovering the hidden identity through cursor movement.
+
+This behavior is directly based on the supplied interactive hero reference, where the alternate image exists underneath and appears only through cursor movement using an organic animated mask.
+
+---
+
+# 3. CURSOR REVEAL — EXACT BEHAVIOR
+
+When the cursor enters the hero:
+
+begin the reveal interaction.
+
+The reveal should follow the cursor smoothly.
+
+The reveal MUST NOT be:
+
+* a perfect circle
+* a radial gradient spotlight
+* an oval
+* a rectangle
+* a straight split
+* a hard geometric shape
+
+Instead use an:
+
+## ORGANIC IRREGULAR FLUID MASK
+
+The reveal should feel like:
+
+* liquid
+* blob-like
+* asymmetric
+* slightly distorted
+* continuously morphing
+* soft around the edges
+* tactile
+* premium
+
+The supplied reference specifically calls for an irregular, liquid/blob-shaped reveal with continuously morphing edges and a feathered boundary.
+
+Target characteristics:
+
+* approximately 250–400px overall reveal size on desktop
+* soft feathered boundary
+* slight deformation
+* subtle inertia
+* slight cursor lag
+* smooth interpolation
+* stable 60fps target
+
+The cursor movement should feel like it is dragging or uncovering the hidden image.
+
+---
+
+# 4. CURSOR REVEAL POSITIONING
+
+The reveal mask follows the cursor.
+
+However, the mask itself must remain stable relative to the two portrait images.
+
+Do NOT move Image 1.
+
+Do NOT move Image 2.
+
+Do NOT transform the photographs independently.
+
+Only the mask position and shape should change.
+
+The supplied reference explicitly requires both images to remain aligned while only the mask moves and deforms.
+
+Use interpolation/damping so the reveal has a slight physical feel.
+
+Conceptually:
+
+cursor position
+↓
+target mask position
+↓
+interpolated mask position
+↓
+organic deformation
+↓
+revealed dark portrait
+
+---
+
+# 5. CURSOR OVER FACE
+
+When the organic reveal passes over my face, the visitor should clearly discover:
+
+* the mask
+* the darker expression
+* the green iris
+* darker styling
+
+This should create the feeling:
+
+"I just discovered another version of this person."
+
+The effect must preserve the underlying image everywhere else.
+
+Example:
+
+LEFT SIDE:
+light portrait
+
+CENTER FACE:
+organic reveal showing dark masked identity
+
+RIGHT SIDE:
+light portrait
+
+This is essential.
+
+Do not reveal the entire dark image simply because the cursor touched the face.
+
+---
+
+# 6. MOUSE LEAVE BEHAVIOR
+
+When the cursor leaves the hero:
+
+* hide Image 2 completely
+* restore Image 1 as the only visible hero portrait
+* remove the reveal mask
+* return to the normal state
+
+This behavior is specifically required by the supplied reference document.
+
+The visitor should be able to repeatedly enter and leave the hero and rediscover the alternate identity.
+
+---
+
+# 7. MOBILE CURSOR REPLACEMENT
+
+Mobile has no mouse cursor.
+
+Therefore use touch/finger position.
+
+On touch interaction:
+
+* Image 1 remains the base
+* Image 2 is revealed through the same organic mask
+* the mask follows the finger position
+* the effect remains smooth
+* the images remain perfectly aligned
+
+The supplied reference also explicitly specifies touch position as the mobile interaction mechanism.
+
+The implementation must not depend exclusively on mouse events.
+
+Support:
+
+* pointer events where practical
+* touch interaction
+* mouse interaction
+
+Prefer a unified pointer architecture.
+
+---
+
+# 8. SYSTEM B — TURN DARK MODE
+
+This is a completely different interaction.
+
+The top-right button is:
+
+## TURN DARK MODE
+
+When the user clicks/taps this button:
+
+DO NOT show the cursor reveal.
+
+DO NOT create a blob.
+
+DO NOT keep the light image as the dominant base.
+
+DO NOT make the dark identity appear only inside a small cursor region.
+
+Instead:
+
+## DIRECTLY REVEAL THE COMPLETE DARK HERO.
+
+The user should immediately enter the full dark identity.
+
+The resulting screen should show:
+
+* complete dark portrait
+* complete dark background
+* visible half-mask
+* emerald eyes
+* dark outfit
+* intense expression
+* cinematic shadows
+* green visual accents
+* dark typography treatment
+* complete alter-ego presentation
+
+This is a full hero mode transition.
+
+---
+
+# 9. TURN DARK MODE — VISUAL RESULT
+
+After clicking:
+
+LIGHT HERO
+↓
+DARK HERO
+
+The entire hero changes.
+
+The dark state should feel deliberate and immediate.
+
+The final dark state is NOT a cursor-reveal state.
+
+It is a complete visual composition.
+
+Conceptually:
+
+┌────────────────────────────────────────────┐
+│ DARK NAVIGATION                 LIGHT MODE │
+│                                            │
+│          SOFTWARE ENGINEER                 │
+│                                            │
+│              [FULL DARK                    │
+│                PORTRAIT]                   │
+│                                            │
+│         MASK + GREEN EYES                  │
+│                                            │
+└────────────────────────────────────────────┘
+
+The dark background itself becomes part of the identity.
+
+---
+
+# 10. DARK MODE BUTTON BEHAVIOR
+
+Initial label:
+
+TURN DARK MODE
+
+After activation:
+
+RETURN TO LIGHT
+
+Clicking RETURN TO LIGHT returns to the normal hero.
+
+The state must be deterministic.
+
+For example:
+
+LIGHT
+↓
+TURN DARK MODE
+↓
+DARK LOCKED
+
+and:
+
+DARK LOCKED
+↓
+RETURN TO LIGHT
+↓
+LIGHT
+
+Do not let cursor movement accidentally undo the locked dark mode.
+
+Do not allow hover behavior to fight the dark-mode state.
+
+---
+
+# 11. DARK MODE OVERRIDES CURSOR REVEAL
+
+This is very important.
+
+When dark mode is locked:
+
+* cursor reveal is disabled
+* blob mask is disabled
+* dark portrait is fully visible
+* full dark composition remains visible
+* mouse leaving the hero does nothing
+* moving around the face does nothing to the image state
+
+Dark mode has priority over cursor reveal.
+
+The state hierarchy should conceptually be:
+
+LIGHT
+↓
+CURSOR_REVEAL
+↓
+LIGHT
+
+OR
+
+LIGHT
+↓
+DARK_MODE_LOCKED
+
+Once DARK_MODE_LOCKED is active, cursor reveal is suspended.
+
+---
+
+# 12. RETURN TO LIGHT
+
+When RETURN TO LIGHT is clicked:
+
+* restore the original light portrait
+* restore normal background
+* restore normal typography styling
+* restore glasses
+* remove full dark identity
+* return to the normal light hero
+* re-enable cursor reveal
+
+After returning to light mode, moving the cursor across the hero should once again reveal Image 2 through the organic mask.
+
+---
+
+# 13. THREE PRIMARY HERO STATES
+
+Build the hero as an explicit state machine.
+
+### STATE 1 — LIGHT_DEFAULT
+
+* Image 1 visible
+* Image 2 hidden
+* cursor mask inactive
+* light background
+* normal typography
+* glasses visible
+
+### STATE 2 — CURSOR_REVEAL
+
+* Image 1 remains base
+* Image 2 visible only inside organic cursor mask
+* light background remains
+* dark image is locally revealed
+* cursor movement controls the reveal
+
+### STATE 3 — DARK_LOCKED
+
+* Image 2 fully visible
+* dark background visible
+* complete masked identity visible
+* green eyes visible
+* cursor reveal disabled
+* dark typography/UI active
+
+Optional transition state:
+
+### STATE 4 — TRANSITIONING
+
+Used only while animating between states.
+
+No race conditions between timelines.
+
+---
+
+# 14. HERO VISUAL HIERARCHY
+
+The hero should contain layers approximately like:
+
+1. background
+2. oversized typography
+3. Image 1
+4. Image 2
+5. organic reveal mask
+6. mask/eye overlays if required
+7. lighting overlays
+8. foreground typography
+9. navigation
+10. mode button
+11. cursor indicator
+
+However, implementation may change the exact DOM order when technically necessary.
+
+The visual result is what matters.
+
+---
+
+# 15. HERO TYPOGRAPHY
+
+The main identity statement should be:
+
+## SOFTWARE ENGINEER
+
+Do not simply center it above the photograph.
+
+Use editorial layering.
+
+Potential composition:
+
+SOFTWARE
+ENGINEER
+
+with typography partially:
+
+* behind the portrait
+* beside the portrait
+* partially overlapped by the portrait
+* subtly animated
+
+Typography should feel large, premium, and intentional.
+
+Avoid generic portfolio hero layouts.
+
+---
+
+# 16. PREMIUM CURSOR LANGUAGE
+
+Create a subtle custom cursor indicator if it improves the experience.
+
+Possible state:
+
+REVEAL
+
+when over the hero.
+
+But:
+
+* keep it small
+* keep it refined
+* avoid huge cursor graphics
+* do not obstruct the face
+* preserve native accessibility behavior where appropriate
+
+The reference document also recommends a refined cursor indicator rather than an oversized distracting cursor.
+
+---
+
+# 17. DARK IDENTITY ART DIRECTION
+
+The dark identity should be original but inspired by the following visual language:
+
+* Dr. Doom-inspired metallic menace
+* Loki-inspired emerald energy
+* cinematic antihero
+* dark luxury
+* futuristic identity
+* controlled metallic surfaces
+* dramatic shadows
+
+Do NOT copy copyrighted character costume designs.
+
+Create an original design.
+
+The dark portrait should contain:
+
+* no glasses
+* stronger expression
+* half-mask
+* dark clothing
+* subtle emerald eye color
+* dramatic lighting
+* cinematic contrast
+
+---
+
+# 18. EYE DESIGN
+
+The eyes require a separate treatment.
+
+Only the iris/center should become emerald.
+
+Do NOT make the entire eyeball green.
+
+Do NOT use a whole-face hue rotation.
+
+Conceptual structure:
+
+eye white
++
+iris
++
+pupil
++
+localized emerald glow
+
+The eye whites should remain realistic.
+
+The emerald effect should remain:
+
+* controlled
+* localized
+* cinematic
+* subtle enough to feel believable
+* bright enough to read
+
+---
+
+# 19. MASK SYSTEM
+
+The half-mask should ideally be separated from the portrait.
+
+Use:
+
+dark portrait
++
+SVG mask
++
+shadow layer
++
+highlight layer
++
+lighting layer
+
+This allows the mask to animate independently.
+
+Possible mask construction:
+
+* base metallic surface
+* darker edges
+* reflective highlight
+* shadow
+* subtle texture
+* controlled specular effect
+
+Do not make the mask cartoonish.
+
+The mask must look physically integrated into the face.
+
+---
+
+# 20. FACE ALIGNMENT
+
+The biggest technical risk is alignment.
+
+The light portrait and dark portrait must maintain identical:
+
+* face position
+* eye coordinates
+* head scale
+* head rotation
+* crop
+* body position
+
+The mask and eyes must be positioned relative to the portrait container rather than the browser viewport.
+
+Use normalized coordinates or another robust positioning system.
+
+The system must survive:
+
+* desktop
+* laptop
+* tablet
+* mobile
+
+without the mask drifting away from the face.
+
+---
+
+# 21. SCROLL TRANSITION
+
+The special hero identity system applies ONLY to the hero.
+
+Once the user scrolls beyond the hero:
+
+transition into the portfolio content.
+
+The remainder of the website should NOT retain:
+
+* cursor-reveal portrait
+* mask reveal
+* green-eye effect
+* revenge expression effect
+* character overlays
+
+Instead the portfolio becomes a premium dark-neutral developer portfolio.
+
+---
+
+# 22. BELOW-THE-FOLD DESIGN
+
+The content sections should be visually sophisticated but much calmer than the hero.
+
+Suggested palette:
+
+* graphite
+* charcoal
+* warm off-white
+* muted gray
+* restrained emerald
+
+Use green strategically.
+
+Do not make the whole portfolio neon green.
+
+Sections:
+
+* About
+* Skills
+* Projects
+* Resume
+* Contact
+
+---
+
+# 23. ABOUT POSITIONING
+
+The portfolio should primarily position me as:
+
+# SOFTWARE ENGINEER
+
+Do not make hardware/IoT the dominant identity.
+
+The RFID/IoT project may demonstrate systems/engineering breadth, but the overall branding must be software-first.
+
+The About section should answer:
+
+* Who am I?
+* What do I build?
+* What kind of engineer am I?
+* What am I interested in?
+* What am I becoming?
+
+Use my resume and supplied information as the authoritative source.
+
+Never invent experience.
+
+---
+
+# 24. PROJECTS
+
+Projects should communicate engineering thinking.
+
+For each project, consider:
+
+* problem
+* approach
+* architecture
+* technologies
+* engineering decisions
+* result
+* role
+
+Projects should not simply be represented by:
+
+"Built X using Y."
+
+Create stronger visual storytelling.
+
+Potential interaction:
+
+PROJECT 01
+PROJECT NAME
+↓
+project visual
+↓
+hover
+↓
+stack / metadata
+↓
+click
+↓
+case study
+
+---
+
+# 25. RESUME
+
+Use the supplied resume as the authoritative source.
+
+Add a Resume section with:
+
+VIEW RESUME
+DOWNLOAD PDF
+
+The portfolio itself should expose important information instead of requiring recruiters to download the PDF.
+
+Do not fabricate missing information.
+
+---
+
+# 26. CONTACT
+
+Keep the final contact section simple.
+
+Potential structure:
+
+LET'S BUILD SOMETHING.
+
+Email
+LinkedIn
+GitHub
+
+A simple mailto workflow is acceptable initially.
+
+Do not build a backend unless necessary.
+
+---
+
+# 27. REQUIRED TECHNOLOGY DISCOVERY
+
+Before coding, perform a complete technical audit.
+
+Determine:
+
+## DEVELOPMENT TOOLS
+
+What editor/IDE
+What runtime
+What package manager
+What version-control tools
+What browser/devtools
+
+## FRONTEND TECHNOLOGY
+
+What HTML/CSS/JS architecture
+What animation engine
+What mask technology
+What image-loading strategy
+What responsive system
+
+## IMAGE PIPELINE
+
+What image-generation/editing system
+What asset optimization tool
+What image format
+What dimensions
+What alignment workflow
+
+## DEPLOYMENT
+
+What hosting
+What source-control integration
+What domain configuration
+What build system
+
+Do not assume tools are installed.
+
+---
+
+# 28. REQUIRED PREFLIGHT — DO THIS FIRST
+
+Before writing major code, produce a complete discovery report.
+
+## A. APPLICATIONS REQUIRED
+
+Make a list of every application we will use.
+
+Include:
+
+* development tools
+* image generation/editing tools
+* image optimization tools
+* design/asset tools
+* testing tools
+* deployment tools
+
+For each state:
+
+* why it is needed
+* whether mandatory/optional
+* installation/setup requirement
+
+---
+
+# 29. REQUIRED PREFLIGHT — WEBSITES / ONLINE SERVICES
+
+Make a separate list of every website/service we may use.
+
+For each state:
+
+* purpose
+* whether it requires an account
+* whether it requires an API key
+* whether it is optional
+* whether a local alternative exists
+
+Do not add unnecessary services.
+
+---
+
+# 30. REQUIRED PREFLIGHT — DEPENDENCIES
+
+Create a complete dependency matrix.
+
+For every feature, provide:
+
+FEATURE
++
+FILES REQUIRED
++
+NPM DEPENDENCIES
++
+ASSET DEPENDENCIES
++
+EXTERNAL TOOL DEPENDENCIES
++
+PREREQUISITES
++
+TESTING REQUIREMENTS
+
+Cover:
+
+* Vite setup
+* hero
+* cursor reveal
+* organic mask
+* dark mode
+* portrait transition
+* mask
+* eyes
+* cursor
+* navigation
+* scrolling
+* sections
+* responsive behavior
+* accessibility
+* performance
+* SEO
+* deployment
+
+---
+
+# 31. REQUIRED PREFLIGHT — IMAGE GENERATION
+
+Before implementing the hero, determine the exact asset pipeline for creating:
+
+### LIGHT IMAGE
+
+Use my supplied photo.
+
+### DARK IMAGE
+
+Create an aligned alternate portrait.
+
+The dark image should preserve my:
+
+* identity
+* facial structure
+* camera angle
+* composition
+* head position
+* body position
+* framing
+
+but change:
+
+* glasses
+* outfit
+* expression
+* mask
+* lighting
+
+The image-generation process must be treated as a production asset workflow, not an afterthought.
+
+---
+
+# 32. REQUIRED PREFLIGHT — ASSET CHECKLIST
+
+Create an asset checklist.
+
+Include:
+
+* light hero portrait
+* dark hero portrait
+* mask SVG
+* eye overlays
+* favicon
+* resume
+* project images
+* icons
+* fonts if needed
+* social preview image
+
+For every asset state:
+
+* source
+* required format
+* expected dimensions
+* optimization method
+* destination path
+
+---
+
+# 33. RECOMMENDED PROJECT ARCHITECTURE
+
+Use a maintainable structure similar to:
+
+portfolio/
+│
+├── index.html
+├── package.json
+├── README.md
+├── .gitignore
+│
+├── public/
+│
+├── src/
+│   ├── css/
+│   │   ├── variables.css
+│   │   ├── style.css
+│   │   ├── hero.css
+│   │   ├── animations.css
+│   │   └── responsive.css
+│   │
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── hero.js
+│   │   ├── reveal.js
+│   │   ├── darkMode.js
+│   │   ├── cursor.js
+│   │   ├── scroll.js
+│   │   └── animations.js
+│   │
+│   └── components/
+│
+├── assets/
+│   ├── images/
+│   ├── mask/
+│   ├── eyes/
+│   ├── icons/
+│   └── resume/
+│
+└── docs/
+
+Adapt this structure if the actual implementation requires something better.
+
+---
+
+# 34. CSS ARCHITECTURE
+
+Use CSS custom properties for:
+
+* colors
+* spacing
+* typography
+* animation timing
+* z-index
+* hero measurements
+* breakpoints
+* mask dimensions
+
+Separate:
+
+* global styling
+* hero styling
+* animation styling
+* responsive rules
+
+Avoid a giant stylesheet.
+
+---
+
+# 35. JAVASCRIPT ARCHITECTURE
+
+Separate responsibilities.
+
+For example:
+
+### hero.js
+
+Hero initialization and state management.
+
+### reveal.js
+
+Cursor/touch organic image reveal.
+
+### darkMode.js
+
+Full dark-mode transition and locking.
+
+### cursor.js
+
+Custom cursor behavior.
+
+### scroll.js
+
+Scroll-based section behavior.
+
+### animations.js
+
+Reusable animation utilities.
+
+Avoid global spaghetti state.
+
+---
+
+# 36. ANIMATION ARCHITECTURE
+
+Preferred animation system:
+
+GSAP
+
+Potential:
+
+ScrollTrigger
+
+Optional:
+
+Lenis
+
+Use them only where beneficial.
+
+Do not create unnecessary animation libraries.
+
+The cursor-reveal system should be optimized for continuous movement.
+
+The dark-mode transition can use a dedicated timeline.
+
+The two systems must remain logically separate.
+
+---
+
+# 37. PERFORMANCE REQUIREMENTS
+
+The cursor reveal runs continuously.
+
+Therefore optimize it aggressively.
+
+Avoid:
+
+* expensive React-style rerenders
+* unnecessary layout measurements
+* repeated DOM queries
+* heavyweight blur
+* unnecessarily large masks
+* unoptimized images
+
+Prefer:
+
+* transform-based updates
+* efficient SVG/canvas masking
+* requestAnimationFrame where appropriate
+* interpolation
+* preloaded critical assets
+
+Target smooth interaction.
+
+---
+
+# 38. RESPONSIVE BEHAVIOR
+
+### DESKTOP
+
+Cursor reveal is primary interactive discovery.
+
+### TABLET
+
+Pointer/touch support depending on device.
+
+### MOBILE
+
+Finger touch controls reveal.
+
+Dark-mode button remains fully accessible.
+
+No important information can depend exclusively on hover.
+
+---
+
+# 39. ACCESSIBILITY
+
+Implement:
+
+* semantic HTML
+* accessible navigation
+* keyboard support
+* focus states
+* appropriate button semantics
+* alt text
+* contrast
+* reduced motion
+* touch accessibility
+
+Support:
+
+`prefers-reduced-motion`
+
+With reduced motion:
+
+* simplify cursor movement
+* minimize mask morphing
+* minimize transition duration
+* preserve functionality
+
+---
+
+# 40. SEO
+
+Implement:
+
+* page title
+* meta description
+* semantic headings
+* Open Graph
+* favicon
+* canonical URL placeholder
+* social preview metadata
+* appropriate indexing configuration
+
+---
+
+# 41. PERFORMANCE BUDGET
+
+Treat the hero as the primary performance area.
+
+Use:
+
+* AVIF/WebP
+* responsive image sizes
+* compression
+* lazy loading below the fold
+* selective preloading
+* optimized SVGs
+
+Do not preload every asset.
+
+---
+
+# 42. BROWSER TEST MATRIX
+
+Test:
+
+Chrome
+Edge
+Firefox
+Safari
+Android Chrome
+
+At approximately:
+
+1920×1080
+1536×864
+1440×900
+1280×720
+1024×768
+768×1024
+390×844
+
+Particularly verify:
+
+* portrait alignment
+* mask alignment
+* eye alignment
+* cursor reveal
+* touch reveal
+* dark-mode switching
+* scroll transition
+
+---
+
+# 43. GIT WORKFLOW
+
+Create Git history incrementally.
+
+Suggested commits:
+
+1. project-foundation
+2. global-design-system
+3. base-layout
+4. light-hero
+5. aligned-dark-portrait
+6. cursor-reveal-system
+7. organic-mask
+8. dark-mode-system
+9. mask-and-eye-system
+10. hero-polish
+11. portfolio-sections
+12. responsive
+13. accessibility
+14. optimization
+15. seo
+16. production-build
+17. deployment
+
+---
+
+# 44. CODE QUALITY
+
+Code must be:
+
+* maintainable
+* modular
+* readable
+* production-quality
+* appropriately commented
+* free of dead code
+* free of unused imports
+* free of unused dependencies
+* free of console errors
+
+Do not over-engineer.
+
+Do not introduce technology without a reason.
+
+---
+
+# 45. NO UNNECESSARY WEBGL
+
+Do NOT begin with Three.js/WebGL.
+
+First implement using:
+
+HTML
++
+CSS
++
+SVG
++
+GSAP
++
+optimized images
+
+Only introduce WebGL if testing proves that the desired effect cannot be achieved cleanly otherwise.
+
+---
+
+# 46. IMAGE GENERATION QUALITY CONTROL
+
+The dark image must pass a visual quality check before being integrated deeply into the hero.
+
+Check:
+
+* face identity
+* eye placement
+* mask placement
+* crop
+* proportions
+* lighting
+* head position
+* composition
+
+If alignment is bad, fix the asset before building the advanced animation around it.
+
+---
+
+# 47. PHASED EXECUTION
+
+Build in this exact conceptual order:
+
+PHASE 0
+Preflight / discovery
+
+↓
+
+PHASE 1
+Development environment
+
+↓
+
+PHASE 2
+Asset preparation
+
+↓
+
+PHASE 3
+Base page
+
+↓
+
+PHASE 4
+Design system
+
+↓
+
+PHASE 5
+Light hero
+
+↓
+
+PHASE 6
+Aligned dark image
+
+↓
+
+PHASE 7
+Cursor reveal
+
+↓
+
+PHASE 8
+Organic mask refinement
+
+↓
+
+PHASE 9
+Dark-mode full reveal
+
+↓
+
+PHASE 10
+Mask and eye detailing
+
+↓
+
+PHASE 11
+Hero state machine
+
+↓
+
+PHASE 12
+Navigation
+
+↓
+
+PHASE 13
+Portfolio content
+
+↓
+
+PHASE 14
+Responsive
+
+↓
+
+PHASE 15
+Accessibility
+
+↓
+
+PHASE 16
+Performance
+
+↓
+
+PHASE 17
+SEO
+
+↓
+
+PHASE 18
+Testing
+
+↓
+
+PHASE 19
+Production build
+
+↓
+
+PHASE 20
+Deployment
+
+↓
+
+PHASE 21
+Final polish
+
+---
+
+# 48. BEFORE EACH PHASE
+
+Before implementation:
+
+1. explain the objective
+2. list files to change
+3. list dependencies
+4. list prerequisites
+5. implement
+6. validate
+7. test
+8. report result
+9. identify issues
+10. only then continue
+
+Do not modify unrelated areas.
+
+---
+
+# 49. DEVELOPMENT RULE
+
+Do not build everything in one shot.
+
+Use short, verifiable milestones.
+
+At every stage the application should remain runnable.
+
+Do not move forward while introducing unresolved structural problems.
+
+---
+
+# 50. DEPLOYMENT
+
+Preferred production flow:
+
+GitHub
+↓
+Vercel
+↓
+custom domain
+
+Prepare:
+
+* production build
+* environment variables
+* correct asset paths
+* PDF handling
+* SEO metadata
+* favicon
+* social preview
+* HTTPS
+* responsive layout
+
+Document deployment in README.md.
+
+---
+
+# 51. FINAL SUCCESS CONDITIONS
+
+The project is complete only when all of the following are true.
+
+## HERO
+
+The initial hero shows my normal/light identity.
+
+## CURSOR REVEAL
+
+Moving the cursor over the hero reveals the dark masked identity only inside an organic moving mask.
+
+The rest of the image remains light.
+
+There is NO global dark-mode transition during normal cursor reveal.
+
+## FACE REVEAL
+
+When the organic mask crosses the face, the visitor sees the masked face and emerald eyes.
+
+## MOUSE LEAVE
+
+The dark image disappears completely and the light identity returns.
+
+## MOBILE
+
+Touch position controls the organic reveal.
+
+## DARK MODE
+
+Clicking/tapping TURN DARK MODE immediately reveals the COMPLETE dark hero.
+
+That means:
+
+* full dark image
+* dark background
+* mask
+* green eyes
+* dark clothing
+* intense expression
+* complete dark visual composition
+
+The cursor blob is NOT used for this state.
+
+## DARK MODE LOCK
+
+Once activated, moving the cursor does not restore the light image.
+
+## RETURN TO LIGHT
+
+Clicking the return control restores the light hero and re-enables cursor reveal.
+
+## SCROLL
+
+Scrolling below the hero removes the special identity effects and reveals the normal portfolio.
+
+## PORTFOLIO
+
+About, Skills, Projects, Resume, Contact all work.
+
+## RESPONSIVE
+
+The experience works on desktop, tablet, and mobile.
+
+## ACCESSIBILITY
+
+Keyboard navigation and reduced motion work.
+
+## PERFORMANCE
+
+Hero interaction remains smooth.
+
+## PRODUCTION
+
+The application builds successfully and can be deployed.
+
+---
+
+# 52. ABSOLUTE DESIGN PRINCIPLE
+
+The hero must communicate:
+
+### "There is another identity hidden inside the portrait."
+
+Cursor interaction is about:
+
+## DISCOVERY
+
+The user explores the photograph and uncovers pieces of the dark identity.
+
+Dark mode is about:
+
+## TRANSFORMATION
+
+The user deliberately chooses to reveal the complete alter ego.
+
+These are NOT the same interaction.
+
+The distinction must remain intact throughout the implementation.
+
+---
+
+# 53. FINAL EXPERIENCE
+
+The final visitor journey should feel approximately like this:
+
+PAGE LOAD
+
+→ clean premium portrait
+
+→ "SOFTWARE ENGINEER"
+
+→ visitor moves cursor across hero
+
+→ organic liquid reveal follows cursor
+
+→ hidden masked identity appears locally
+
+→ visitor discovers green eyes/mask
+
+→ cursor leaves
+
+→ normal portrait returns
+
+→ visitor clicks TURN DARK MODE
+
+→ entire hero transforms into complete dark identity
+
+→ full masked portrait
+
+→ dark background
+
+→ green eyes
+
+→ cinematic typography
+
+→ visitor scrolls
+
+→ dark-neutral professional software portfolio
+
+→ About
+
+→ Skills
+
+→ Projects
+
+→ Resume
+
+→ Contact
+
+→ deployment-ready professional portfolio
+
+---
+
+# 54. FIRST THING YOU MUST DO
+
+DO NOT START BY WRITING THE ENTIRE WEBSITE.
+
+First produce:
+
+## 1. COMPLETE APP / TOOL LIST
+
+## 2. COMPLETE WEBSITE / SERVICE LIST
+
+## 3. IMAGE-GENERATION / IMAGE-EDITING PLAN
+
+## 4. COMPLETE DEPENDENCY MATRIX
+
+## 5. PROJECT FILE STRUCTURE
+
+## 6. REQUIRED ASSETS
+
+## 7. REQUIRED USER INPUTS
+
+## 8. IMPLEMENTATION PHASES
+
+## 9. TECHNICAL RISKS
+
+## 10. RECOMMENDED EXECUTION ORDER
+
+Only after that should implementation begin.
+
+---
+
+# 55. IMPORTANT FINAL INSTRUCTION
+
+When making technical decisions, prioritize:
+
+1. visual correctness
+2. interaction correctness
+3. maintainability
+4. performance
+5. accessibility
+6. simplicity
+
+Do not sacrifice the core interaction to make the architecture unnecessarily complicated.
+
+The most important distinction in this entire project is:
+
+**CURSOR = LOCAL ORGANIC DISCOVERY**
+
+**TURN DARK MODE = FULL HERO TRANSFORMATION**
+
+Keep those two systems separate at both the design level and code architecture level.
+
+Build this as a polished production portfolio, not as a prototype.
+
+--- File: ./package-lock.json ---
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "portfolio",
+      "version": "0.1.0",
+      "devDependencies": {
+        "vite": "^7.1.7"
+      }
+    },
+    "node_modules/@esbuild/aix-ppc64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.28.2.tgz",
+      "integrity": "sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==",
+      "cpu": [
+        "ppc64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "aix"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/android-arm": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.28.2.tgz",
+      "integrity": "sha512-kXXoiPVVGQcnIYGOeaovwOURpniDBpSq4A03qkQ+BMQqtGG6HYap3xne9C1O1yo4TR3qxlCX5IqqmX6fFo2Lqg==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/android-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.28.2.tgz",
+      "integrity": "sha512-5YfKeeI8qWfBZIX+u2xZC3Zlb3Os/gLS2sbEKM+I4ZOcsWmHS2WLysCcQZDAFRslDUU5Oiq44gf6PYN1vGwG5A==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/android-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-x64/-/android-x64-0.28.2.tgz",
+      "integrity": "sha512-O387ite7SzUyCcy3JQX4P4bLtEA7bLLkx+esve5JHnyYfNTxcVpXZo9jhdB0lTKN44gztELTdU7nS8Nr16Fs1Q==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "android"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/darwin-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.28.2.tgz",
+      "integrity": "sha512-n4KqkOQrraxHJcgjM1RvwbigfQKIKJVpM7xp+KsxiyUSrRdIXnt73VhrPAx0fV44hgfmIVKjxMN9J1t5jySVkw==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/darwin-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.28.2.tgz",
+      "integrity": "sha512-uq6suIWYP37qzGddBKPw5QEQPi6HiLGsO7UmkpfyaYNQ3D+rN6w6WfwH+nuqcGXWvawGwxOEroO4YGnFh95azw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/freebsd-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-arm64/-/freebsd-arm64-0.28.2.tgz",
+      "integrity": "sha512-n+I0BTSRIoy+d6RPKnEVwql5UwBJolytvY4mAOIEJorKlqgPII8ix6slVVrfZ5Tnj7glIZvloylbB/EJPMWEXw==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/freebsd-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.28.2.tgz",
+      "integrity": "sha512-78XJTJkvPs0kz2w61301PJjXl4g7q3JqiYMZ/M/yVI73EHBrCRTgkhu9oqG7vPqq+a/yadEW8aD+agKlk5xrmg==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-arm": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.28.2.tgz",
+      "integrity": "sha512-XlDnu2q5yoqems+xay6wSAcg9DDD7K9RLKZEBOMZm3ckNpJBvOX20tSfby8KfrrhINDyv9V2YVZKY/SpoGJI8w==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.28.2.tgz",
+      "integrity": "sha512-pW4AC0P3it8c7do9MVM4p51FzHzdM/TZrerurgRcHJ2WTa1VQ1CIq18xncfpBJw4ojkiZZrKW2yIBWBP92j6Ug==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-ia32": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-ia32/-/linux-ia32-0.28.2.tgz",
+      "integrity": "sha512-CYbnj78HsIeA+DhgUKgFCfvNsTHFhMMrinUrMZpDXJXKN8T3XViTZ/+wtHeVxEWY8ewSzTFN+nRmSwO2tZaLUQ==",
+      "cpu": [
+        "ia32"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-loong64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-loong64/-/linux-loong64-0.28.2.tgz",
+      "integrity": "sha512-buwkd8nsph4R+ajRvw0qM5Hja/TXQow3ptzWO2EbG/cqcIkHloRrdlBtQlshyYGTNFvfkfJ5tpPLVkY4DtsPfQ==",
+      "cpu": [
+        "loong64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-mips64el": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-mips64el/-/linux-mips64el-0.28.2.tgz",
+      "integrity": "sha512-ZVykbDyk7519VwiNb9Lcj9m8XM6v5V9uKPvrEMkkEedVewf+0itkhahp4HDpgERXhwLRpWFypsGbG/J8s0QjJA==",
+      "cpu": [
+        "mips64el"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-ppc64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-ppc64/-/linux-ppc64-0.28.2.tgz",
+      "integrity": "sha512-CAXl+Dtd9UUuJd8pKKdwh6MLm3MUMiqMPmhZ3tTSXPqfyQ3vDl6R5hZdZ/kYojK4ofXtdfSv1tFq8XzWx3heNQ==",
+      "cpu": [
+        "ppc64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-riscv64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-riscv64/-/linux-riscv64-0.28.2.tgz",
+      "integrity": "sha512-GeXCej4IQtU1B+QlDV8W/RRvbzI3O/Stss+/bCXv4lZls5WGRtu2a+3JkA3i4qIUlMXpcHebWpF8AkJhATowuA==",
+      "cpu": [
+        "riscv64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-s390x": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-s390x/-/linux-s390x-0.28.2.tgz",
+      "integrity": "sha512-3H1weTYZPxt/WOhByszQZybS9w5lKzUn1FDMsgEChbHWQwHYQQRfBxgCcZvPhjHfKyJjIievvMmEUawJrdY9Dg==",
+      "cpu": [
+        "s390x"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/linux-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.28.2.tgz",
+      "integrity": "sha512-4xTZr1FUmSoQW4XIWmit3tzQrUTZM+N3P0XV8xROKYF50XfI7xeO90+1bZvNwxIufQ9hDQVRJH5YhgPVF8A/HQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/netbsd-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/netbsd-arm64/-/netbsd-arm64-0.28.2.tgz",
+      "integrity": "sha512-sSATRjPeDBg3pdgHoQfoYBob11Kk1FGa9lui5RIHZCoCkJa9QKlvl3/vKz2usCmYYjs7ymJR/2Nnsqe+Hjt5nw==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "netbsd"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/netbsd-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/netbsd-x64/-/netbsd-x64-0.28.2.tgz",
+      "integrity": "sha512-lqnzCV+mM0gIADaKihiCg6ifgfU2L3h5E33rNQBN1Y4MaVGnzryzmvvf7UHxprpQdE8hpqLolJ9Rl+SkIRDpyw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "netbsd"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/openbsd-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/openbsd-arm64/-/openbsd-arm64-0.28.2.tgz",
+      "integrity": "sha512-AL2qJILH7lNjrDmCQDvdxMfAUIv8KMNZOvrwAQ8i8//ntL9FflhOyMJ8OZSMBb8/AWXe3/5v5S20y3zCoZWKoQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "openbsd"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/openbsd-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/openbsd-x64/-/openbsd-x64-0.28.2.tgz",
+      "integrity": "sha512-QtiuPytchRyC4rwUKhexJdQKvDuZ6hWloi3igqPQNUJCS1/v9EiO3UTOXR6A3FoMo4fnAKbWJdqaIwhOzh8qEw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "openbsd"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/openharmony-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/openharmony-arm64/-/openharmony-arm64-0.28.2.tgz",
+      "integrity": "sha512-WkhYDmpTjLvGlScA1rwjRUmhl4k8oXR3cIbtqWmELgU/dFeHHlEllxDvdWcNJV9rbzCexB5vz8gtNewWLgCT7Q==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "openharmony"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/sunos-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/sunos-x64/-/sunos-x64-0.28.2.tgz",
+      "integrity": "sha512-GPMSkTOtMnv2U2F8gxe4Io6qmVs+YKyp832Etqqxr0hFngmXQ3rzwytelm3GIn7T4VviRUlf3sOgBOiTdvaf7g==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "sunos"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/win32-arm64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-arm64/-/win32-arm64-0.28.2.tgz",
+      "integrity": "sha512-PIhhEkE9uPBleRBrQEJpUn7MBnibZzbGzYWPmY3x+YoVg/95zbjB4CxPPOQ8l5tYYM4mMaCthF8/1DIfBQQyWQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/win32-ia32": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.28.2.tgz",
+      "integrity": "sha512-YmJbfTlvU7Sdn9BB+4PRES4oB6pxgS37MAONj+hBr/cpXS1aBPKXxNnDbu+QCWPj0o9dgyxeq79g6c5P8KeuYA==",
+      "cpu": [
+        "ia32"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/win32-x64": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.28.2.tgz",
+      "integrity": "sha512-5ebpxr3nWMzrL/rnUI755Jkuee0bHL/Gq0WTF9lvcpv73wAp5eu8MfBUgWK9bhWvZjj7yX8etf/8tI8Ney695g==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@napi-rs/lzma-linux-x64-gnu": {
+      "version": "1.5.1",
+      "resolved": "https://registry.npmjs.org/@napi-rs/lzma-linux-x64-gnu/-/lzma-linux-x64-gnu-1.5.1.tgz",
+      "integrity": "sha512-oTXEIha4SsuXdTA4Iyskj0kpdx2yVXdhd75c2v3xGrHFfVMsbhTPZU/nMPL4sWKo4pBHm3aucLaqGlF696dTyQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": "^22.20 || ^24.12 || >=25"
+      }
+    },
+    "node_modules/@rollup/rollup-android-arm-eabi": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.64.2.tgz",
+      "integrity": "sha512-gjNDUwMswogkw3fNqV00u54uZlgmInuw5EU/1TeqQ6K0bEagoGvqjPdKzy112lKyhe7PkGudZ/kSQHsc9qroIg==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "android"
+      ]
+    },
+    "node_modules/@rollup/rollup-android-arm64": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-android-arm64/-/rollup-android-arm64-4.64.2.tgz",
+      "integrity": "sha512-YkAW8q7p5SCLSaGWaUkmsRnBEb3MGA1pB5nI/8k0lAK5fZsQKRBqkdR1h4UU9p8u3c7ZGdUF2Zcx7mK+E/pUKg==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "android"
+      ]
+    },
+    "node_modules/@rollup/rollup-darwin-arm64": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.64.2.tgz",
+      "integrity": "sha512-hNmuIHv+LnrP/+q/44vsmIMWfoh7X2YXOp5FLtjGuvqN52VdtFpOpnshTc1k28tWv1wE/0D5gLjsozBUowEGbQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@rollup/rollup-darwin-x64": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-darwin-x64/-/rollup-darwin-x64-4.64.2.tgz",
+      "integrity": "sha512-B0t5CoxgF2KL7R5FHAsyN8yVEQCSIkh4XVs8MCDjuBLNjEa8l3zd5tVKaFMv53LfUtHs9p2rnqeavPTOunV+Ww==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@rollup/rollup-freebsd-arm64": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-freebsd-arm64/-/rollup-freebsd-arm64-4.64.2.tgz",
+      "integrity": "sha512-QQdYnfwrPmc1DoPlddjFvQPzUHFbStKXsHrG6EBYsWHhBVUCjsCRdcfGGXGAvhDpDtTzKK4vy1UrGFJ45rQaiw==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ]
+    },
+    "node_modules/@rollup/rollup-freebsd-x64": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-freebsd-x64/-/rollup-freebsd-x64-4.64.2.tgz",
+      "integrity": "sha512-1xRxtGWif6BB58VSfMavi0Yfs2M4x6CtRp4o7ScY4W7AGlgvf6GSPKdDNdw7TX3tMiQwZY5W/mvyrOJTq/7AKA==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "freebsd"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm-gnueabihf": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm-gnueabihf/-/rollup-linux-arm-gnueabihf-4.64.2.tgz",
+      "integrity": "sha512-CXFLEt384BUwwOLR9DURWNHl1bQOVLd1ibOee+yKBJm/fZtvrSAOZ0JbxjAxszVMIovYMwFMS+oP+Q1aPcx8Eg==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm-musleabihf": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm-musleabihf/-/rollup-linux-arm-musleabihf-4.64.2.tgz",
+      "integrity": "sha512-T1dorY0WHm5mMNpMHFl5rYRZ02gLSZcr6J45r66tYb3S3R3DyIRGiGWVdLtF+zOQjratNJaObl9jYumueRiL1A==",
+      "cpu": [
+        "arm"
+      ],
+      "dev": true,
+      "libc": [
+        "musl"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm64-gnu": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm64-gnu/-/rollup-linux-arm64-gnu-4.64.2.tgz",
+      "integrity": "sha512-ia6bfaCIc0ldp6bvs9oEkFrJVJKNUMoiDF0+LBZsQAZg+vE0znXnzGqH+ew/FYswE30cruAWPTO3dPw7keaVkQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-arm64-musl": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-arm64-musl/-/rollup-linux-arm64-musl-4.64.2.tgz",
+      "integrity": "sha512-mB/gwfBfXtT0EBpbSssqKCqMFuX8b21Zy2TGoIhehSJEssZ5ksybxymwp1BkEM5Nczh/AAxpmh5q+MkhtundGg==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "libc": [
+        "musl"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-loong64-gnu": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-loong64-gnu/-/rollup-linux-loong64-gnu-4.64.2.tgz",
+      "integrity": "sha512-VPd0a+XlHoNRI9jIPRHww2UKhDkD6XjbtcKYXZijAnhJS1jLLbiNtVl6a5LyEfNN+eyiyWcJOZXPzBo69oTsew==",
+      "cpu": [
+        "loong64"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-loong64-musl": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-loong64-musl/-/rollup-linux-loong64-musl-4.64.2.tgz",
+      "integrity": "sha512-10N1I6oBpERqzGtHKcCLrEpHlbXSBbMK9TURHvqgWbIFZuU3oJROxJ0H2nHfq96TVI0XJHQ9qzolJMFd2tz0LA==",
+      "cpu": [
+        "loong64"
+      ],
+      "dev": true,
+      "libc": [
+        "musl"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-ppc64-gnu": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-ppc64-gnu/-/rollup-linux-ppc64-gnu-4.64.2.tgz",
+      "integrity": "sha512-dhJrLVZ3wNNhwCmy9/VTg6Pq6J8a8eZ0n15dVRlbSWcDb+8V/1mDfbnvis+vt8W6Pbxzv6gUbTEl4piOT3bbUQ==",
+      "cpu": [
+        "ppc64"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-ppc64-musl": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-ppc64-musl/-/rollup-linux-ppc64-musl-4.64.2.tgz",
+      "integrity": "sha512-tPd2QuwxkTxgju5eARyb3RdgBWWi/O9dn/NFH0VkvGbLzoQeXrH6qMABtW8IODb5lUeBzB3sy2U7qmI4MtQ72g==",
+      "cpu": [
+        "ppc64"
+      ],
+      "dev": true,
+      "libc": [
+        "musl"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-riscv64-gnu": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-riscv64-gnu/-/rollup-linux-riscv64-gnu-4.64.2.tgz",
+      "integrity": "sha512-njtDdPvSQWI9CDhIPPxsiEMeHayCfu7wwcbSQ7c2kYPhGVviL+WGVhq6Jfj/b+VuhSTkFuQ0z4ZFbFjkWwBFmg==",
+      "cpu": [
+        "riscv64"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-riscv64-musl": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-riscv64-musl/-/rollup-linux-riscv64-musl-4.64.2.tgz",
+      "integrity": "sha512-EbOBo3dqCj9ecEV9Z7zvulB6AieMP2ztnKQYGVOSN0pzIyOu+3JH2YJZnLmbPeVvfn6yP6Qi7NbBM27EzGbj2w==",
+      "cpu": [
+        "riscv64"
+      ],
+      "dev": true,
+      "libc": [
+        "musl"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-s390x-gnu": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-s390x-gnu/-/rollup-linux-s390x-gnu-4.64.2.tgz",
+      "integrity": "sha512-8wLt2Q5n4qmfiE2Gk8V6KNLSf+oJuBX7Kdw5joFDtnZIZvirS0hLzBc79OiJjV71oYDmBUZLNy6pDgvylo4qiQ==",
+      "cpu": [
+        "s390x"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-x64-gnu": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.64.2.tgz",
+      "integrity": "sha512-aIChbkhC4d33bxkVP0LSi2/2lUSGRXE6k4Qa0G7tgpgTOK7kxHTixmx5qC3SKUJ6yUMznHBtQoWaG4QMqLUnhw==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "libc": [
+        "glibc"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-linux-x64-musl": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.64.2.tgz",
+      "integrity": "sha512-gQ+TkVZRfjZVcl/UOAxxfWw+sHjzIXoieNwxEyJlD3tRBmBhR8ZDq11w+QEgQDcpslEB+fhN/OEpaTsDoIIHhQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "libc": [
+        "musl"
+      ],
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@rollup/rollup-openbsd-x64": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-openbsd-x64/-/rollup-openbsd-x64-4.64.2.tgz",
+      "integrity": "sha512-sUaJpMKS2JBCvUk8fYimG7aMq2jHVT4kw/uVHxPolKLrMmkKy0KXirmZyZehdNpL7PffqAlPAWUELQcTiD8ChA==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "openbsd"
+      ]
+    },
+    "node_modules/@rollup/rollup-openharmony-arm64": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-openharmony-arm64/-/rollup-openharmony-arm64-4.64.2.tgz",
+      "integrity": "sha512-j1RdJWb0CrlSuwt12OPjLucPlwfLtA/KMOKVvh5rXSJEtl/WDoIGR3CSykK/jLGTo9RqNfW5Ub6kY5Z5ccYl9w==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "openharmony"
+      ]
+    },
+    "node_modules/@rollup/rollup-win32-arm64-msvc": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-win32-arm64-msvc/-/rollup-win32-arm64-msvc-4.64.2.tgz",
+      "integrity": "sha512-i3r04aHCIY3eggTBLUp/4IxiBjDpAgQaK89Ue2nMJ2MKuIXX5JfoeZjHw+kPjGGNVDlhi8FT8xzuGMJZe3aehg==",
+      "cpu": [
+        "arm64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@rollup/rollup-win32-ia32-msvc": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-win32-ia32-msvc/-/rollup-win32-ia32-msvc-4.64.2.tgz",
+      "integrity": "sha512-kCQ15h/uwNMGdN8gjXBZGf+aGE+ODzHfbi90/cAm4+Q89WoMiLODNoj8HoGZmYx87HPxfu5CBNPsZ+ZG4uIAoA==",
+      "cpu": [
+        "ia32"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@rollup/rollup-win32-x64-gnu": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-win32-x64-gnu/-/rollup-win32-x64-gnu-4.64.2.tgz",
+      "integrity": "sha512-yYAuySSs+0X2gSMJPw/Q4jHsHZHyMq1dpAE+XnN790Jg1WuReUAD/+j+e4vuDvS4PXJ4PA4NCzTR4OYtDf18/g==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@rollup/rollup-win32-x64-msvc": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.64.2.tgz",
+      "integrity": "sha512-JY1rQdWOJrKutORqKO1uzrHXV86jFiQzfLFKx2s8S1CjLXL9fC5LOIvk0q7Z7PXJvsByt+sdoE1Q2a9gBr4gLQ==",
+      "cpu": [
+        "x64"
+      ],
+      "dev": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@types/estree": {
+      "version": "1.0.9",
+      "resolved": "https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz",
+      "integrity": "sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==",
+      "dev": true,
+      "license": "MIT"
+    },
+    "node_modules/esbuild": {
+      "version": "0.28.2",
+      "resolved": "https://registry.npmjs.org/esbuild/-/esbuild-0.28.2.tgz",
+      "integrity": "sha512-HKVLS8dvII+xoKW9kmqxbRKrnWEXfJJr/FZhhJmiqIB0e053QNYFqOBouTMO/k5sID4MvCiUCvv8b9M4h32wIA==",
+      "dev": true,
+      "hasInstallScript": true,
+      "license": "MIT",
+      "bin": {
+        "esbuild": "bin/esbuild"
+      },
+      "engines": {
+        "node": ">=18"
+      },
+      "optionalDependencies": {
+        "@esbuild/aix-ppc64": "0.28.2",
+        "@esbuild/android-arm": "0.28.2",
+        "@esbuild/android-arm64": "0.28.2",
+        "@esbuild/android-x64": "0.28.2",
+        "@esbuild/darwin-arm64": "0.28.2",
+        "@esbuild/darwin-x64": "0.28.2",
+        "@esbuild/freebsd-arm64": "0.28.2",
+        "@esbuild/freebsd-x64": "0.28.2",
+        "@esbuild/linux-arm": "0.28.2",
+        "@esbuild/linux-arm64": "0.28.2",
+        "@esbuild/linux-ia32": "0.28.2",
+        "@esbuild/linux-loong64": "0.28.2",
+        "@esbuild/linux-mips64el": "0.28.2",
+        "@esbuild/linux-ppc64": "0.28.2",
+        "@esbuild/linux-riscv64": "0.28.2",
+        "@esbuild/linux-s390x": "0.28.2",
+        "@esbuild/linux-x64": "0.28.2",
+        "@esbuild/netbsd-arm64": "0.28.2",
+        "@esbuild/netbsd-x64": "0.28.2",
+        "@esbuild/openbsd-arm64": "0.28.2",
+        "@esbuild/openbsd-x64": "0.28.2",
+        "@esbuild/openharmony-arm64": "0.28.2",
+        "@esbuild/sunos-x64": "0.28.2",
+        "@esbuild/win32-arm64": "0.28.2",
+        "@esbuild/win32-ia32": "0.28.2",
+        "@esbuild/win32-x64": "0.28.2"
+      }
+    },
+    "node_modules/fdir": {
+      "version": "6.5.0",
+      "resolved": "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz",
+      "integrity": "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=12.0.0"
+      },
+      "peerDependencies": {
+        "picomatch": "^3 || ^4"
+      },
+      "peerDependenciesMeta": {
+        "picomatch": {
+          "optional": true
+        }
+      }
+    },
+    "node_modules/fsevents": {
+      "version": "2.3.3",
+      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
+      "dev": true,
+      "hasInstallScript": true,
+      "license": "MIT",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
+      }
+    },
+    "node_modules/nanoid": {
+      "version": "3.3.20",
+      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.20.tgz",
+      "integrity": "sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==",
+      "dev": true,
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/ai"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "nanoid": "bin/nanoid.cjs"
+      },
+      "engines": {
+        "node": "^10 || ^12 || ^13.7 || ^14 || >=15.0.1"
+      }
+    },
+    "node_modules/picocolors": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+      "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==",
+      "dev": true,
+      "license": "ISC"
+    },
+    "node_modules/picomatch": {
+      "version": "4.0.7",
+      "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz",
+      "integrity": "sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/jonschlinkert"
+      }
+    },
+    "node_modules/postcss": {
+      "version": "8.5.29",
+      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.5.29.tgz",
+      "integrity": "sha512-49cGhUbXj8Qenv0iTMxA1cFBzxXoctpC9Ujd77t1WcbJIr6nF/eI7g/8MgxrYldFRuAXvja7xQRwavoW7kgrxQ==",
+      "dev": true,
+      "funding": [
+        {
+          "type": "opencollective",
+          "url": "https://opencollective.com/postcss/"
+        },
+        {
+          "type": "tidelift",
+          "url": "https://tidelift.com/funding/github/npm/postcss"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/ai"
+        }
+      ],
+      "license": "MIT",
+      "dependencies": {
+        "nanoid": "^3.3.19",
+        "picocolors": "^1.1.1",
+        "source-map-js": "^1.2.2"
+      },
+      "engines": {
+        "node": "^10 || ^12 || >=14"
+      }
+    },
+    "node_modules/rollup": {
+      "version": "4.64.2",
+      "resolved": "https://registry.npmjs.org/rollup/-/rollup-4.64.2.tgz",
+      "integrity": "sha512-RxXm0XVVV1hFI3dYe12ruaOgsYQ725lUcUWeMSQqkF9tTxVErY+fy2Ets6vWhItL9MZMSNZGbvZFc7rH/VHp2Q==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@types/estree": "1.0.9"
+      },
+      "bin": {
+        "rollup": "dist/bin/rollup"
+      },
+      "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.0.0"
+      },
+      "optionalDependencies": {
+        "@napi-rs/lzma-linux-x64-gnu": "1.5.1",
+        "@rollup/rollup-android-arm-eabi": "4.64.2",
+        "@rollup/rollup-android-arm64": "4.64.2",
+        "@rollup/rollup-darwin-arm64": "4.64.2",
+        "@rollup/rollup-darwin-x64": "4.64.2",
+        "@rollup/rollup-freebsd-arm64": "4.64.2",
+        "@rollup/rollup-freebsd-x64": "4.64.2",
+        "@rollup/rollup-linux-arm-gnueabihf": "4.64.2",
+        "@rollup/rollup-linux-arm-musleabihf": "4.64.2",
+        "@rollup/rollup-linux-arm64-gnu": "4.64.2",
+        "@rollup/rollup-linux-arm64-musl": "4.64.2",
+        "@rollup/rollup-linux-loong64-gnu": "4.64.2",
+        "@rollup/rollup-linux-loong64-musl": "4.64.2",
+        "@rollup/rollup-linux-ppc64-gnu": "4.64.2",
+        "@rollup/rollup-linux-ppc64-musl": "4.64.2",
+        "@rollup/rollup-linux-riscv64-gnu": "4.64.2",
+        "@rollup/rollup-linux-riscv64-musl": "4.64.2",
+        "@rollup/rollup-linux-s390x-gnu": "4.64.2",
+        "@rollup/rollup-linux-x64-gnu": "4.64.2",
+        "@rollup/rollup-linux-x64-musl": "4.64.2",
+        "@rollup/rollup-openbsd-x64": "4.64.2",
+        "@rollup/rollup-openharmony-arm64": "4.64.2",
+        "@rollup/rollup-win32-arm64-msvc": "4.64.2",
+        "@rollup/rollup-win32-ia32-msvc": "4.64.2",
+        "@rollup/rollup-win32-x64-gnu": "4.64.2",
+        "@rollup/rollup-win32-x64-msvc": "4.64.2",
+        "fsevents": "~2.3.2"
+      }
+    },
+    "node_modules/source-map-js": {
+      "version": "1.2.2",
+      "resolved": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz",
+      "integrity": "sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==",
+      "dev": true,
+      "license": "BSD-3-Clause",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/tinyglobby": {
+      "version": "0.2.17",
+      "resolved": "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz",
+      "integrity": "sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "fdir": "^6.5.0",
+        "picomatch": "^4.0.4"
+      },
+      "engines": {
+        "node": ">=12.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/SuperchupuDev"
+      }
+    },
+    "node_modules/vite": {
+      "version": "7.3.7",
+      "resolved": "https://registry.npmjs.org/vite/-/vite-7.3.7.tgz",
+      "integrity": "sha512-AHEzTORMbi7/7aXp7w7KZ5+DCUdSeLsJz0grY8xHpc9DHdYb0vQu6DqJfm2tOw3gDExNgPgnJTXxM6syYFHaCA==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "esbuild": "^0.27.0 || ^0.28.0",
+        "fdir": "^6.5.0",
+        "picomatch": "^4.0.3",
+        "postcss": "^8.5.6",
+        "rollup": "^4.43.0",
+        "tinyglobby": "^0.2.15"
+      },
+      "bin": {
+        "vite": "bin/vite.js"
+      },
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "funding": {
+        "url": "https://github.com/vitejs/vite?sponsor=1"
+      },
+      "optionalDependencies": {
+        "fsevents": "~2.3.3"
+      },
+      "peerDependencies": {
+        "@types/node": "^20.19.0 || >=22.12.0",
+        "jiti": ">=1.21.0",
+        "less": "^4.0.0",
+        "lightningcss": "^1.21.0",
+        "sass": "^1.70.0",
+        "sass-embedded": "^1.70.0",
+        "stylus": ">=0.54.8",
+        "sugarss": "^5.0.0",
+        "terser": "^5.16.0",
+        "tsx": "^4.8.1",
+        "yaml": "^2.4.2"
+      },
+      "peerDependenciesMeta": {
+        "@types/node": {
+          "optional": true
+        },
+        "jiti": {
+          "optional": true
+        },
+        "less": {
+          "optional": true
+        },
+        "lightningcss": {
+          "optional": true
+        },
+        "sass": {
+          "optional": true
+        },
+        "sass-embedded": {
+          "optional": true
+        },
+        "stylus": {
+          "optional": true
+        },
+        "sugarss": {
+          "optional": true
+        },
+        "terser": {
+          "optional": true
+        },
+        "tsx": {
+          "optional": true
+        },
+        "yaml": {
+          "optional": true
+        }
+      }
+    }
+  }
+}
+
+--- File: ./package.json ---
+{
+  "name": "portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.7"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
+
+--- File: ./README.md ---
+# Syed Albash — Software Engineer
+
+Cinematic interactive portfolio, built in phases from the master specification.
+
+## Current milestone
+
+Phase 4 (design system) and Phase 5 (light hero composition).
+
+Not yet implemented: GSAP, organic cursor reveal, dark-mode state machine, dark portrait layer, mask/eye overlays, or production deployment.
+
+## Requirements
+
+- Node.js 20+
+- npm 10+
+
+## Scripts
+
+```bash
+npm install
+npm run dev      # Vite at http://localhost:5173
+npm run build
+npm run preview
+```
+
+## Asset locations
+
+| Asset | Path |
+| --- | --- |
+| Light portrait | `assets/images/portrait-light.png` |
+| Dark portrait | `assets/images/portrait-dark.png` (not in the DOM yet) |
+| Resume PDF | `public/resume.pdf` |
+
+--- File: ./src/css/animations.css ---
+/* animations.css
+   Scroll-entrance animation system — Phase 13 (cinematic entrance).
+   Zero-dependency: pure CSS transitions driven by IntersectionObserver in animations.js.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Reduced-motion: disable smooth scroll AND all entrance transitions ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Snap everything instantly visible, no movement */
+  .fade-up {
+    transform: none !important;
+    transition-duration: 0.01s !important;
+  }
+}
+
+/* ─── Base entrance state: hidden, shifted down ─────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity  0.8s var(--ease-standard),
+    transform 0.8s var(--ease-standard);
+}
+
+/* ─── Triggered state: fully visible, in place ──────────────────────────── */
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Stagger delays — apply alongside .fade-up ────────────────────────── */
+/* delay-1: secondary content (first paragraph, skill grid, project grid…) */
+.delay-1 {
+  transition-delay: 150ms;
+}
+
+/* delay-2: tertiary content (contact list, resume links…) */
+.delay-2 {
+  transition-delay: 300ms;
+}
+
+--- File: ./src/css/hero.css ---
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-bg-deep);
+}
+
+.hero__portrait {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Layer 1: Light Base Background */
+.hero__portrait--light {
+  z-index: 1;
+}
+
+/* Layer 2: Dark Base — organic cursor reveal */
+.hero__portrait--dark {
+  z-index: 2;
+}
+
+/* Layer 4: Light Foreground Cutout */
+.hero__portrait--cutout {
+  z-index: 4;
+}
+
+/* Layer 5: Dark Foreground Cutout — organic cursor reveal */
+.hero__portrait--dark-cutout {
+  z-index: 5;
+}
+
+/* =====================================================
+   REVEAL MASK SYSTEM  (Phases 7 & 8)
+   CSS variables are set by reveal.js on the .hero element:
+     --mouse-x   : cursor X in px relative to hero
+     --mouse-y   : cursor Y in px relative to hero
+     --mask-size : revealed circle diameter in px
+   ===================================================== */
+
+/* The organic blob mask — shared by both reveal layers */
+.reveal-layer {
+  /* Hidden by default; opacity managed by .is-revealing state */
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-standard);
+
+  /*
+   * The mask uses a radial gradient clipped to an organic blob shape
+   * produced by an inline SVG <feTurbulence> filter.
+   * We layer two masks:
+   *   1. A feathered radial gradient (soft outer edge)
+   *   2. An SVG filter blob (organic deformation)
+   * Both are combined via mask-composite.
+   */
+  --_x: var(--mouse-x, -9999px);
+  --_y: var(--mouse-y, -9999px);
+  --_r: calc(var(--mask-size, 400px) / 2);
+
+  /* Feathered radial gradient mask — controls the overall reveal radius */
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse var(--_r) var(--_r) at var(--_x) var(--_y),
+      black 38%,
+      rgba(0, 0, 0, 0.85) 52%,
+      rgba(0, 0, 0, 0.5) 65%,
+      rgba(0, 0, 0, 0.15) 78%,
+      transparent 100%
+    );
+  mask-image:
+    radial-gradient(
+      ellipse var(--_r) var(--_r) at var(--_x) var(--_y),
+      black 38%,
+      rgba(0, 0, 0, 0.85) 52%,
+      rgba(0, 0, 0, 0.5) 65%,
+      rgba(0, 0, 0, 0.15) 78%,
+      transparent 100%
+    );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* When the hero is in reveal mode, show the dark layers */
+.hero.is-revealing .reveal-layer {
+  opacity: 1;
+}
+
+/* Dark-locked state: show dark layers fully without any mask */
+.hero[data-hero-state="DARK_LOCKED"] .reveal-layer {
+  opacity: 1;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* Layer 3: Typography (sandwiched between base portraits and cutouts) */
+.hero > .hero__title {
+  /* knobs */
+  --title-size: 10vw; /* bigger = words reach further behind the head */
+  --title-stretch: 1.5; /* vertical stretch; 1 = normal letters */
+  --title-top: 24vh; /* vertical centre of the text */
+  --title-edge: 4vw; /* gap from left/right screen edge */
+
+  position: absolute;
+  z-index: 3;
+  top: var(--title-top);
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0 var(--title-edge);
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--title-size);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-hero-type);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero > .hero__title > span {
+  display: block;
+  position: static;
+  transform: scaleY(var(--title-stretch));
+  transform-origin: center;
+}
+
+/* Phones: stack left / right */
+@media (max-width: 700px) {
+  .hero > .hero__title {
+    --title-size: 12vw;
+    --title-stretch: 1.2;
+    --title-top: 18vh;
+    --title-edge: 5vw;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+  }
+  .hero > .hero__title > span:first-child {
+    align-self: flex-start;
+  }
+  .hero > .hero__title > span:last-child {
+    align-self: flex-end;
+  }
+}
+
+/* Layer 10: Navigation overlay */
+.hero__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--page-gutter);
+  color: var(--color-hero-chrome);
+}
+
+.site-mark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1.35rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.hero .mode-toggle {
+  color: var(--color-hero-chrome);
+  flex-shrink: 0;
+}
+/* --- CUSTOM DESKTOP NUDGES --- */
+@media (min-width: 701px) {
+  /* Pull "SOFTWARE" to the left so the 'E' becomes half visible */
+  .hero > .hero__title > span:first-child {
+    position: relative;
+    left: -4vw; /* Increase this to -5vw or -6vw if you need it further left */
+  }
+
+  /* Push "ENGINEER" downwards */
+  .hero > .hero__title > span:last-child {
+    position: relative;
+    top: 15vh; /* Increase this to 8vh or 10vh to push it lower */
+  }
+}
+
+--- File: ./src/css/responsive.css ---
+@media (max-width: 900px) {
+  .hero__header {
+    flex-wrap: wrap;
+    row-gap: var(--space-3);
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    bottom: 5.5rem;
+  }
+}
+
+--- File: ./src/css/style.css ---
+@import "./variables.css";
+@import "./hero.css";
+@import "./animations.css";
+@import "./responsive.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+  color: var(--color-fg);
+  background: var(--color-bg);
+}
+
+img {
+  display: block;
+}
+
+img:not(.hero__portrait) {
+  max-width: 100%;
+  height: auto;
+}
+
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  margin: 0 0 var(--space-4);
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--page-gutter);
+  top: -4rem;
+  z-index: calc(var(--z-nav) + 1);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-fg);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-3);
+}
+
+.mode-toggle {
+  cursor: pointer;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.section {
+  padding: var(--space-7) var(--page-gutter);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.4s var(--ease-standard), border-color 0.4s var(--ease-standard);
+}
+
+.section__label {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  list-style: none;
+}
+
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.contact-list svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.contact-list a:hover svg {
+  transform: translateY(-2px);
+}
+
+.site-footer {
+  padding: var(--space-5) var(--page-gutter);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+/* ─── Skills ─────────────────────────────────────────────────────────────── */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.skills-group__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-fg);
+  margin: 0;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skills-list__item {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  background: var(--color-surface);
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.skills-list__item:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+/* ─── Project cards ──────────────────────────────────────────────────────── */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: inset 2px 0 0 transparent;
+  transition:
+    transform var(--duration-medium) var(--ease-standard),
+    border-color var(--duration-medium) var(--ease-standard),
+    box-shadow var(--duration-medium) var(--ease-standard);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+  box-shadow: inset 2px 0 0 var(--color-accent);
+}
+
+.project-card__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.project-card__index {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-accent);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--color-fg);
+}
+
+.project-card__description {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+  color: var(--color-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.project-card__footer {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.project-card__tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.project-card__tags li {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.project-card__tags li+li {
+  padding-left: var(--space-3);
+  position: relative;
+}
+
+.project-card__tags li+li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-muted);
+  opacity: 0.5;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.8rem 1.75rem;
+  border: none;
+  cursor: pointer;
+  transition:
+    background var(--duration-medium) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-medium) var(--ease-standard);
+}
+
+.btn--primary {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+--- File: ./src/css/variables.css ---
+:root {
+  --color-bg: #f3efe6;
+  --color-bg-deep: #e7e1d4;
+  --color-fg: #141311;
+  --color-muted: #6d6860;
+  --color-accent: #1a5c42;
+  --color-accent-soft: #c5ddd0;
+  --color-surface: #ebe4d8;
+  --color-border: rgba(20, 19, 17, 0.18);
+  --color-hero-type: #101010;
+  --color-hero-chrome: #101010;
+
+  --font-sans: "Manrope", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Oswald", "Arial Narrow", "Segoe UI", sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-hero: clamp(4.5rem, 14vw, 13.5rem);
+
+  --leading-tight: 0.82;
+  --leading-body: 1.65;
+  --tracking-display: -0.045em;
+  --tracking-label: 0.18em;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 6.5rem;
+  --page-gutter: clamp(1.25rem, 4vw, 3.5rem);
+
+  --z-background: 0;
+  --z-portrait: 1;
+  --z-type: 2;
+  --z-reveal: 3;
+  --z-overlay: 4;
+  --z-nav: 10;
+  --z-cursor: 20;
+
+  --hero-width: 100vw;
+  --hero-height: 100vh;
+  --reveal-size: 320px;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-medium: 320ms;
+
+  --bp-sm: 390px;
+  --bp-md: 768px;
+  --bp-lg: 1280px;
+  --bp-xl: 1440px;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0c0d0c;
+  --color-bg-deep: #080808;
+  --color-fg: #ece8e1;
+  --color-muted: #9a958c;
+  --color-accent: #3dd68c;
+  --color-accent-soft: #163527;
+  --color-surface: #161716;
+  --color-border: rgba(236, 232, 225, 0.16);
+  --color-hero-type: #ece8e1;
+  --color-hero-chrome: #ece8e1;
+}
+
+--- File: ./src/js/animations.js ---
+/**
+ * animations.js — Phase 13
+ *
+ * Scroll-entrance observer.
+ * Watches every .fade-up element and adds .is-visible when it crosses
+ * the viewport threshold. Immediately unobserves so the animation only
+ * fires once per page load (no re-trigger on scroll-back).
+ *
+ * Zero dependencies — no GSAP, no library overhead.
+ */
+
+export function initAnimations() {
+    // IntersectionObserver is universally supported; no polyfill needed.
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add('is-visible');
+
+                // Fire once, then stop watching this element
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            // Element must be 15% into the viewport before triggering
+            threshold: 0.15,
+        }
+    );
+
+    // Observe every element that opts into the entrance animation
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+}
+
+--- File: ./src/js/cursor.js ---
+/**
+ * Refined custom cursor indicator for the hero.
+ * Deferred: later hero polish.
+ */
+export function initCursor() {}
+
+--- File: ./src/js/darkMode.js ---
+/**
+ * Full-hero dark identity lock.
+ * Separate from cursor reveal. Cursor must not undo this state.
+ * Deferred: Phase 9.
+ */
+export function initDarkMode() {}
+
+--- File: ./src/js/hero.js ---
+/**
+ * hero.js — Phase 5–11 state machine
+ *
+ * Manages the three explicit hero states:
+ *   LIGHT_DEFAULT  → initial state, cursor reveal enabled
+ *   CURSOR_REVEAL  → reveal loop active (managed by reveal.js)
+ *   DARK_LOCKED    → full dark identity, reveal suspended
+ *
+ * This module owns data-hero-state on the #hero element.
+ * The dark-mode button wiring is here so all state transitions
+ * remain in one place.
+ */
+
+import { suspendReveal, resumeReveal } from './reveal.js';
+
+const STATES = {
+  LIGHT_DEFAULT : 'LIGHT_DEFAULT',
+  DARK_LOCKED   : 'DARK_LOCKED',
+};
+
+let heroEl   = null;
+let toggleEl = null;
+let currentState = STATES.LIGHT_DEFAULT;
+
+// ─── State transitions ────────────────────────────────────────────────────────
+
+function setState(state) {
+  currentState = state;
+  if (heroEl) heroEl.dataset.heroState = state;
+}
+
+function toLightDefault() {
+  setState(STATES.LIGHT_DEFAULT);
+  document.body.dataset.theme = 'light';
+
+  if (toggleEl) {
+    toggleEl.textContent = 'Turn dark mode';
+    toggleEl.setAttribute('aria-pressed', 'false');
+  }
+
+  resumeReveal();
+}
+
+function toDarkLocked() {
+  // Suspend reveal FIRST so the transition doesn't fight the mask
+  suspendReveal();
+  setState(STATES.DARK_LOCKED);
+  document.body.dataset.theme = 'dark';
+
+  if (toggleEl) {
+    toggleEl.textContent = 'Return to light';
+    toggleEl.setAttribute('aria-pressed', 'true');
+  }
+}
+
+// ─── Toggle handler ───────────────────────────────────────────────────────────
+
+function onToggleClick() {
+  if (currentState === STATES.DARK_LOCKED) {
+    toLightDefault();
+  } else {
+    toDarkLocked();
+  }
+}
+
+// ─── Public API ───────────────────────────────────────────────────────────────
+
+export function initHero() {
+  heroEl   = document.getElementById('hero');
+  toggleEl = document.getElementById('mode-toggle');
+
+  if (!heroEl) {
+    console.warn('[hero.js] Hero element not found.');
+    return { state: STATES.LIGHT_DEFAULT };
+  }
+
+  if (toggleEl) {
+    toggleEl.addEventListener('click', onToggleClick);
+  }
+
+  // Ensure the DOM reflects the initial state
+  setState(STATES.LIGHT_DEFAULT);
+
+  return {
+    get state() { return currentState; },
+  };
+}
+
+--- File: ./src/js/main.js ---
+import { initHero } from "./hero.js";
+import { initReveal } from "./reveal.js";
+import { initDarkMode } from "./darkMode.js";
+import { initCursor } from "./cursor.js";
+import { initScroll } from "./scroll.js";
+import { initAnimations } from "./animations.js";
+
+function boot() {
+  initHero();
+  initReveal();
+  initDarkMode();
+  initCursor();
+  initScroll();
+  initAnimations();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot, { once: true });
+} else {
+  boot();
+}
+
+--- File: ./src/js/reveal.js ---
+/**
+ * reveal.js — Phase 7 & 8
+ *
+ * SYSTEM A: CURSOR / FACE REVEAL
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Organic cursor/touch reveal of the dark identity portrait.
+ * This is LOCAL discovery — NOT a global dark-mode switch.
+ *
+ * Architecture
+ * ─────────────────────────────────────────────────────────────────────────────
+ *  • Mouse/touch position → target coordinates
+ *  • RAF loop lerps current → target (creates inertia / drag feel)
+ *  • Lerped values written as CSS vars on .hero:
+ *       --mouse-x   interpolated X (px, relative to hero)
+ *       --mouse-y   interpolated Y (px, relative to hero)
+ *       --mask-size organic diameter (px)
+ *  • CSS mask-image on .reveal-layer reads these vars and renders the blob
+ *  • .is-revealing class on .hero controls opacity fade in/out
+ *
+ * State guard
+ * ─────────────────────────────────────────────────────────────────────────────
+ * When data-hero-state="DARK_LOCKED" the reveal system pauses completely.
+ * The dark portrait is already fully visible via CSS; we must not interfere.
+ */
+
+// ─── Constants ────────────────────────────────────────────────────────────────
+
+const LERP_FACTOR = 0.09;  // 0–1: lower = more lag / inertia
+const LERP_FACTOR_RM = 0.35;  // Faster lerp for reduced-motion preference
+const MASK_SIZE_DESKTOP = 420; // px – reveal diameter on desktop/tablet
+const MASK_SIZE_MOBILE = 260; // px – reveal diameter on mobile touch
+const MOBILE_BREAKPOINT = 768; // px
+
+// ─── State ────────────────────────────────────────────────────────────────────
+
+/** Current (lerped) mask position */
+let cx = -9999;
+let cy = -9999;
+
+/** Target (raw cursor/touch) position */
+let tx = -9999;
+let ty = -9999;
+
+/** Whether the reveal is active (cursor/finger is inside the hero) */
+let isActive = false;
+
+/** RAF handle */
+let rafId = null;
+
+/** Cached hero element and its bounding rect */
+let hero = null;
+let heroRect = null;
+
+/** Whether the user prefers reduced motion */
+let prefersReducedMotion = false;
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
+
+function isMobile() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+}
+
+/** Clamp a value between min and max */
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
+/** Refresh the hero's bounding rect (call on resize) */
+function refreshRect() {
+    if (hero) heroRect = hero.getBoundingClientRect();
+}
+
+/** Check whether dark mode is locked — reveal must yield */
+function isDarkLocked() {
+    return hero?.dataset?.heroState === 'DARK_LOCKED';
+}
+
+// ─── RAF loop ─────────────────────────────────────────────────────────────────
+
+function tick() {
+    if (!hero) return;
+
+    const factor = prefersReducedMotion ? LERP_FACTOR_RM : LERP_FACTOR;
+    const maskSize = isMobile() ? MASK_SIZE_MOBILE : MASK_SIZE_DESKTOP;
+
+    // Lerp current toward target
+    cx = lerp(cx, tx, factor);
+    cy = lerp(cy, ty, factor);
+
+    // Write CSS custom properties directly on the hero element
+    hero.style.setProperty('--mouse-x', `${cx}px`);
+    hero.style.setProperty('--mouse-y', `${cy}px`);
+    hero.style.setProperty('--mask-size', `${maskSize}px`);
+
+    rafId = requestAnimationFrame(tick);
+}
+
+function startLoop() {
+    if (!rafId) {
+        rafId = requestAnimationFrame(tick);
+    }
+}
+
+function stopLoop() {
+    if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+    }
+}
+
+// ─── Reveal control ───────────────────────────────────────────────────────────
+
+function enterReveal() {
+    if (isDarkLocked()) return;
+    isActive = true;
+    hero.classList.add('is-revealing');
+    startLoop();
+}
+
+function leaveReveal() {
+    isActive = false;
+    hero.classList.remove('is-revealing');
+
+    // Move the mask off-screen so it doesn't "peek" during the fade-out
+    tx = -9999;
+    ty = -9999;
+
+    // Let the loop run one more moment then stop
+    setTimeout(() => {
+        if (!isActive) stopLoop();
+    }, 300);
+}
+
+// ─── Event handlers ───────────────────────────────────────────────────────────
+
+function getHeroCoords(clientX, clientY) {
+    if (!heroRect) refreshRect();
+    return {
+        x: clamp(clientX - heroRect.left, 0, heroRect.width),
+        y: clamp(clientY - heroRect.top, 0, heroRect.height),
+    };
+}
+
+function onPointerEnter(e) {
+    if (e.pointerType === 'touch') return; // handled by touch events
+    refreshRect();
+    const { x, y } = getHeroCoords(e.clientX, e.clientY);
+
+    // Teleport current position to avoid "swooping in" from off-screen
+    cx = x;
+    cy = y;
+    tx = x;
+    ty = y;
+
+    enterReveal();
+}
+
+function onPointerMove(e) {
+    if (e.pointerType === 'touch') return;
+    if (isDarkLocked()) return;
+    if (!heroRect) refreshRect();
+    const { x, y } = getHeroCoords(e.clientX, e.clientY);
+    tx = x;
+    ty = y;
+
+    // FIX: Wake up the mask immediately if the mouse moves while inside
+    if (!isActive) {
+        enterReveal();
+    }
+}
+
+function onPointerLeave(e) {
+    if (e.pointerType === 'touch') return;
+    leaveReveal();
+}
+
+function onTouchStart(e) {
+    if (isDarkLocked()) return;
+    refreshRect();
+    const touch = e.touches[0];
+    const { x, y } = getHeroCoords(touch.clientX, touch.clientY);
+
+    // Teleport so there's no swoop on first touch
+    cx = x;
+    cy = y;
+    tx = x;
+    ty = y;
+
+    enterReveal();
+}
+
+function onTouchMove(e) {
+    if (isDarkLocked()) return;
+    const touch = e.touches[0];
+    const { x, y } = getHeroCoords(touch.clientX, touch.clientY);
+    tx = x;
+    ty = y;
+}
+
+function onTouchEnd() {
+    leaveReveal();
+}
+
+// ─── Resize handler ───────────────────────────────────────────────────────────
+
+let resizeTimer = null;
+function onResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(refreshRect, 150);
+}
+
+// ─── Reduced-motion observer ──────────────────────────────────────────────────
+
+function watchReducedMotion() {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    prefersReducedMotion = mq.matches;
+    mq.addEventListener('change', (e) => {
+        prefersReducedMotion = e.matches;
+    });
+}
+
+// ─── Public API ───────────────────────────────────────────────────────────────
+
+/**
+ * Call from main.js to wire up the reveal system.
+ * hero.js must call initReveal AFTER the hero element exists in the DOM.
+ */
+export function initReveal() {
+    hero = document.getElementById('hero');
+    if (!hero) {
+        console.warn('[reveal.js] Hero element not found — reveal disabled.');
+        return;
+    }
+
+    watchReducedMotion();
+    refreshRect();
+
+    // Pointer events (unified mouse + stylus; touch falls through to touch events)
+    hero.addEventListener('pointerenter', onPointerEnter);
+    hero.addEventListener('pointermove', onPointerMove);
+    hero.addEventListener('pointerleave', onPointerLeave);
+
+    // Touch events (mobile / tablet finger)
+    hero.addEventListener('touchstart', onTouchStart, { passive: true });
+    hero.addEventListener('touchmove', onTouchMove, { passive: true });
+    hero.addEventListener('touchend', onTouchEnd);
+    hero.addEventListener('touchcancel', onTouchEnd);
+
+    window.addEventListener('resize', onResize, { passive: true });
+}
+
+/**
+ * Called by hero.js / darkMode.js when entering DARK_LOCKED state.
+ * Suspends the reveal so the full dark portrait remains uninterrupted.
+ */
+export function suspendReveal() {
+    isActive = false;
+    hero?.classList.remove('is-revealing');
+    stopLoop();
+}
+
+/**
+ * Called by hero.js / darkMode.js when returning to LIGHT_DEFAULT state.
+ * Re-enables reveal on next pointer/touch interaction automatically
+ * (no manual call needed — the event listeners are still attached).
+ */
+export function resumeReveal() {
+    // FIX: Force the mask to wake up if the cursor is already hovering over the hero
+    if (hero && hero.matches(':hover')) {
+        enterReveal();
+    }
+}
+
+--- File: ./src/js/scroll.js ---
+/**
+ * scroll.js
+ *
+ * Hero-aware scroll observer.
+ * The identity system (cursor reveal, RAF loop) is exclusive to the hero.
+ * When the hero leaves the viewport we kill the RAF loop to save CPU.
+ * When it returns we hand control back to reveal.js.
+ */
+
+import { suspendReveal, resumeReveal } from './reveal.js';
+
+export function initScroll() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Hero is back in view — re-enable reveal on next interaction
+                    resumeReveal();
+                } else {
+                    // Hero scrolled out — kill the RAF loop, free CPU
+                    suspendReveal();
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    observer.observe(hero);
+}
+
+--- File: ./vite.config.js ---
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  publicDir: "public",
+  server: {
+    port: 5173,
+    strictPort: true,
+  },
+  build: {
+    outDir: "dist",
+    emptyOutDir: true,
+  },
+});

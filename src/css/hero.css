@@ -1,0 +1,252 @@
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-bg-deep);
+}
+
+.hero__portrait {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.4s var(--ease-standard), visibility 0.4s var(--ease-standard);
+}
+
+/* Layer 1: Light Base Background */
+.hero__portrait--light {
+  z-index: 1;
+}
+
+/* Layer 2: Dark Base — organic cursor reveal */
+.hero__portrait--dark {
+  z-index: 2;
+}
+
+/* Layer 4: Light Foreground Cutout */
+.hero__portrait--cutout {
+  z-index: 4;
+}
+
+/* Layer 5: Dark Foreground Cutout — organic cursor reveal */
+.hero__portrait--dark-cutout {
+  z-index: 5;
+}
+
+/* =====================================================
+   REVEAL MASK SYSTEM (Phases 7 & 8)
+   ===================================================== */
+
+.reveal-layer {
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-standard);
+  will-change: mask-image, -webkit-mask-image, transform;
+  transform: translateZ(0);
+  /* Hardware accelerated composite layer */
+
+  --_x: var(--mouse-x, -9999px);
+  --_y: var(--mouse-y, -9999px);
+  --_r: calc(var(--mask-size, 380px) / 2);
+
+  /* Feathered radial gradient mask */
+  -webkit-mask-image: radial-gradient(circle var(--_r) at var(--_x) var(--_y),
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.95) 45%,
+      rgba(0, 0, 0, 0.4) 75%,
+      transparent 100%);
+  mask-image: radial-gradient(circle var(--_r) at var(--_x) var(--_y),
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.95) 45%,
+      rgba(0, 0, 0, 0.4) 75%,
+      transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* When the hero is in reveal mode, display the dark layers inside the mask */
+.hero.is-revealing .reveal-layer {
+  opacity: 1;
+}
+
+/* Invert mask on the light cutout so it dissolves exactly where the dark mask appears.
+   This prevents the light glasses from sticking out from behind the dark mask. */
+.hero.is-revealing .hero__portrait--cutout {
+  --_x: var(--mouse-x, -9999px);
+  --_y: var(--mouse-y, -9999px);
+  --_r: calc(var(--mask-size, 380px) / 2);
+
+  -webkit-mask-image: radial-gradient(circle var(--_r) at var(--_x) var(--_y),
+      transparent 0%,
+      transparent 45%,
+      rgba(0, 0, 0, 0.6) 75%,
+      black 100%);
+  mask-image: radial-gradient(circle var(--_r) at var(--_x) var(--_y),
+      transparent 0%,
+      transparent 45%,
+      rgba(0, 0, 0, 0.6) 75%,
+      black 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Ensure the light cutout fully returns in default state */
+.hero__portrait--cutout {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* =====================================================
+   DARK LOCKED STATE FIXES
+   ===================================================== */
+
+/* 1. Fully suppress the light portrait and light cutout so glasses cannot bleed */
+.hero[data-hero-state="DARK_LOCKED"] .hero__portrait--light,
+.hero[data-hero-state="DARK_LOCKED"] .hero__portrait--cutout {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 2. Unmask and fully display the dark portrait layers */
+.hero[data-hero-state="DARK_LOCKED"] .reveal-layer {
+  opacity: 1;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Layer 3: Typography (sandwiched between base portraits and cutouts) */
+.hero>.hero__title {
+  --title-size: 10vw;
+  --title-stretch: 1.5;
+  --title-top: 24vh;
+  --title-edge: 4vw;
+
+  position: absolute;
+  z-index: 3;
+  top: var(--title-top);
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0 var(--title-edge);
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--title-size);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-hero-type);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.4s var(--ease-standard);
+}
+
+.hero>.hero__title>span {
+  display: block;
+  position: static;
+  transform: scaleY(var(--title-stretch));
+  transform-origin: center;
+}
+
+/* Phones: stack left / right */
+@media (max-width: 700px) {
+  .hero>.hero__title {
+    --title-size: 12vw;
+    --title-stretch: 1.2;
+    --title-top: 18vh;
+    --title-edge: 5vw;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+  }
+
+  .hero>.hero__title>span:first-child {
+    align-self: flex-start;
+  }
+
+  .hero>.hero__title>span:last-child {
+    align-self: flex-end;
+  }
+}
+
+/* Layer 10: Navigation overlay */
+.hero__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--page-gutter);
+  color: var(--color-hero-chrome);
+  transition: color 0.4s var(--ease-standard);
+}
+
+.site-mark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1.35rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent);
+}
+
+.hero .mode-toggle {
+  color: var(--color-hero-chrome);
+  flex-shrink: 0;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom Desktop Offsets */
+@media (min-width: 701px) {
+  .hero>.hero__title>span:first-child {
+    position: relative;
+    left: -4vw;
+  }
+
+  .hero>.hero__title>span:last-child {
+    position: relative;
+    top: 15vh;
+  }
+}

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syed Albash Ali — Software Engineer</title>
+  <meta name="description"
+    content="Syed Albash is a software engineer. Cinematic personal portfolio covering selected work, resume, and contact." />
+  <link rel="canonical" href="https://example.com/" />
+  <meta property="og:title" content="Syed Albash — Software Engineer" />
+  <meta property="og:description" content="Personal software engineering portfolio of Syed Albash." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Syed Albash — Software Engineer" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Oswald:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+
+<body data-theme="light">
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <main id="main">
+    <section class="hero" id="hero" data-hero-state="LIGHT_DEFAULT" aria-label="Introduction">
+      <!-- Layer 1: Light base portrait -->
+      <img class="hero__portrait hero__portrait--light" src="./assets/images/portrait-light.png"
+        alt="Portrait of Syed Albash wearing glasses" />
+
+      <!-- Layer 2: Dark base portrait (masked reveal) -->
+      <img class="hero__portrait hero__portrait--dark reveal-layer reveal-layer--base"
+        src="./assets/images/portrait-dark.png" alt="" aria-hidden="true" />
+
+      <!-- Layer 10: UI and Navigation -->
+      <header class="hero__header">
+        <a class="site-mark" href="#hero">Syed Albash Ali</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button type="button" class="mode-toggle" id="mode-toggle" aria-pressed="false">
+          Turn dark mode
+        </button>
+      </header>
+
+      <!-- Layer 3: Typography (sandwiched between base and cutouts) -->
+      <h1 class="hero__title fade-up">
+        <span>Software</span>
+        <span>Engineer</span>
+      </h1>
+
+      <!-- Layer 4: Light foreground cutout -->
+      <img class="hero__portrait hero__portrait--cutout" src="./assets/images/portrait-light-cutout.png" alt=""
+        aria-hidden="true" />
+
+      <!-- Layer 5: Dark foreground cutout (masked reveal) -->
+      <img class="hero__portrait hero__portrait--dark-cutout reveal-layer reveal-layer--cutout"
+        src="./assets/images/portrait-dark-cutout.png" alt="" aria-hidden="true" />
+    </section>
+
+    <section class="section" id="about">
+      <p class="section__label fade-up">01 — About</p>
+      <h2 class="fade-up">Who I am</h2>
+      <div class="fade-up delay-1">
+        <p>
+          I am a Software Development Engineer with a focus on building robust, scalable systems across the stack.
+          Currently pursuing my B.Tech in Electronics and Computer Science at Ramdeobaba University, I specialize in
+          crafting everything from seamless frontends and resilient backend APIs to system design and cloud
+          architecture.
+        </p>
+        <p>
+          Whether I am engineering data pipelines for millions of records or building full-stack web platforms, I love
+          turning complex logic into elegant, high-performance solutions.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="section__label fade-up">02 — Skills</p>
+      <h2 class="fade-up">What I work with</h2>
+      <div class="skills-grid fade-up delay-1">
+        <div class="skills-group">
+          <h3 class="skills-group__heading">Machine Learning & Data</h3>
+          <ul class="skills-list" role="list">
+            <li class="skills-list__item">Python</li>
+            <li class="skills-list__item">PyTorch</li>
+            <li class="skills-list__item">FAISS</li>
+            <li class="skills-list__item">LightGBM</li>
+            <li class="skills-list__item">LLMs</li>
+            <li class="skills-list__item">Parquet</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3 class="skills-group__heading">Web & Systems</h3>
+          <ul class="skills-list" role="list">
+            <li class="skills-list__item">JavaScript / React.js</li>
+            <li class="skills-list__item">Node.js / REST APIs</li>
+            <li class="skills-list__item">Java / C++ / Rust</li>
+            <li class="skills-list__item">SQL / NoSQL</li>
+            <li class="skills-list__item">Docker / Linux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <p class="section__label fade-up">03 — Projects</p>
+      <h2 class="fade-up">Selected work</h2>
+      <div class="project-grid fade-up delay-1">
+        <article class="project-card" id="project-amazon-ml">
+          <header class="project-card__header">
+            <span class="project-card__index" aria-hidden="true">01</span>
+            <h3 class="project-card__title">Amazon ML Challenge 2026</h3>
+          </header>
+          <p class="project-card__description">
+            Built an end-to-end entity matching pipeline to resolve noisy business records across three large data
+            sources containing 12.5M+ records using approximate nearest neighbor search.
+          </p>
+          <footer class="project-card__footer">
+            <ul class="project-card__tags" role="list" aria-label="Technologies used">
+              <li>PyTorch</li>
+              <li>FAISS</li>
+              <li>LightGBM</li>
+              <li>Parquet</li>
+            </ul>
+          </footer>
+        </article>
+
+        <article class="project-card" id="project-library">
+          <header class="project-card__header">
+            <span class="project-card__index" aria-hidden="true">02</span>
+            <h3 class="project-card__title">Online Library System</h3>
+          </header>
+          <p class="project-card__description">
+            Built a full-stack platform for authentication, book browsing, inventory management, and borrowing records
+            powered by modular RESTful backend APIs.
+          </p>
+          <footer class="project-card__footer">
+            <ul class="project-card__tags" role="list" aria-label="Technologies used">
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>REST APIs</li>
+              <li>HTML/CSS</li>
+            </ul>
+          </footer>
+        </article>
+
+        <article class="project-card" id="project-smart-cart">
+          <header class="project-card__header">
+            <span class="project-card__index" aria-hidden="true">03</span>
+            <h3 class="project-card__title">IoT Smart Shopping Cart</h3>
+          </header>
+          <p class="project-card__description">
+            Developed an automated retail system integrating RFID and weight sensors for real-time product
+            identification, verification, and automated billing.
+          </p>
+          <footer class="project-card__footer">
+            <ul class="project-card__tags" role="list" aria-label="Technologies used">
+              <li>Python</li>
+              <li>Arduino</li>
+              <li>RFID</li>
+              <li>IoT</li>
+            </ul>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="resume">
+      <p class="section__label fade-up">04 — Resume</p>
+      <h2 class="fade-up">Resume</h2>
+      <a href="/resume.pdf" class="btn btn--primary fade-up delay-1" target="_blank" rel="noopener noreferrer">View /
+        Download Resume</a>
+    </section>
+
+    <section class="section" id="contact">
+      <p class="section__label fade-up">05 — Contact</p>
+      <h2 class="fade-up">Let’s build something.</h2>
+      <ul class="contact-list fade-up delay-1">
+        <li>
+          <a href="mailto:syedalbash9@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+            Email
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/albashx" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-1.85 0-2.58.98-3 1.6V10h-2.76v8.5h2.76v-4.7c0-1.21.23-2.4 1.76-2.4 1.5 0 1.51 1.44 1.51 2.49v4.61h2.75m-11.42 0H4.76V10h2.76v8.5M6.14 4.54a1.6 1.6 0 1 0-.02 3.2 1.6 1.6 0 0 0 .02-3.2z" />
+            </svg>
+            LinkedIn</a>
+        </li>
+        <li>
+          <a href="https://github.com/AlbashX" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+            GitHub</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <!-- Column 1: Brand & Bio -->
+      <div class="footer__brand">
+        <div class="footer__mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2L3 20H8.5L12 12.5L15.5 20H21L12 2Z" fill="currentColor" />
+            <circle cx="12" cy="7" r="1.5" fill="#3dd68c" />
+          </svg>
+          <span class="footer__name">Syed Albash</span>
+        </div>
+        <p class="footer__role">Software Engineer & Systems Architect.</p>
+        <p class="footer__copyright">© 2026 Syed Albash Ali.</p>
+      </div>
+
+      <!-- Column 2: Explore -->
+      <div class="footer__column">
+        <h3 class="footer__heading">Explore</h3>
+        <ul class="footer__links" role="list">
+          <li><a href="#projects">Selected work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills & Stack</a></li>
+          <li><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Connect -->
+      <div class="footer__column">
+        <h3 class="footer__heading">Connect</h3>
+        <ul class="footer__links" role="list">
+          <li><a href="https://linkedin.com/in/albashx" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/AlbashX" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li>
+            <button type="button" class="footer__copy-btn" id="copy-email-btn" data-email="syedalbash9@gmail.com">
+              <span class="btn-text">Copy email</span>
+              <span class="btn-feedback" aria-live="polite"></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

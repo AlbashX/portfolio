@@ -1,0 +1,1731 @@
+# MASTER PROMPT
+
+## CINEMATIC INTERACTIVE SOFTWARE ENGINEER PORTFOLIO
+
+### Codex IDE — Full Production Build Specification
+
+You are the lead frontend engineer, creative developer, motion designer, interaction engineer, visual systems architect, and production deployment engineer responsible for building my personal portfolio website.
+
+This is a **high-end interactive software-engineering portfolio**, not a template portfolio and not a basic HTML/CSS project.
+
+The website must combine:
+
+* premium personal branding
+* cinematic portrait presentation
+* advanced cursor interaction
+* layered image compositing
+* organic mask-based image reveal
+* a completely separate dark-mode identity transformation
+* polished typography
+* modern motion design
+* responsive engineering
+* accessibility
+* performance optimization
+* SEO
+* production deployment
+
+The final website must feel visually ambitious while remaining professional enough for software-engineering recruiters.
+
+---
+
+# 1. NON-NEGOTIABLE CORE CONCEPT
+
+The entire hero experience is based around **TWO DIFFERENT INTERACTION SYSTEMS**.
+
+Do not combine them.
+
+Do not treat them as the same effect.
+
+Do not implement dark mode as merely an enlarged cursor mask.
+
+The hero contains two aligned portrait images:
+
+### IMAGE 1 — LIGHT IDENTITY
+
+My normal/default portrait.
+
+It contains:
+
+* my original face
+* glasses
+* normal expression
+* current clothing
+* full color
+* normal lighting
+
+This is the permanent base layer of the initial hero.
+
+### IMAGE 2 — DARK IDENTITY
+
+My transformed alter-ego portrait.
+
+It contains:
+
+* no glasses
+* intense/revengeful expression
+* half-mask
+* emerald/green irises
+* dark clothing
+* cinematic shadows
+* dramatic lighting
+* darker overall atmosphere
+* original interpretation inspired by dark antihero aesthetics
+
+The two images MUST be extremely closely aligned.
+
+Maintain:
+
+* identical dimensions
+* identical framing
+* identical crop
+* identical camera angle
+* identical head position
+* identical face position
+* identical body position
+* identical scale
+
+The images must not independently move, scale, rotate, or distort.
+
+---
+
+# 2. CRITICAL INTERACTION MODEL
+
+## SYSTEM A — CURSOR / FACE REVEAL
+
+This is an **interactive reveal**, NOT dark mode.
+
+Initial state:
+
+IMAGE 1 fills the entire hero.
+
+IMAGE 2 is underneath/above as a hidden masked layer.
+
+When the cursor moves across the hero:
+
+IMAGE 2 is revealed ONLY around the cursor.
+
+Everything outside the reveal remains IMAGE 1.
+
+This means:
+
+LIGHT PHOTO
++
+small organic window
+containing DARK PHOTO
+
+The dark image is NOT globally revealed.
+
+The page does NOT switch to dark mode.
+
+The background does NOT globally change.
+
+The hero typography does NOT suddenly switch to a complete dark theme.
+
+The visitor is simply discovering the hidden identity through cursor movement.
+
+This behavior is directly based on the supplied interactive hero reference, where the alternate image exists underneath and appears only through cursor movement using an organic animated mask.
+
+---
+
+# 3. CURSOR REVEAL — EXACT BEHAVIOR
+
+When the cursor enters the hero:
+
+begin the reveal interaction.
+
+The reveal should follow the cursor smoothly.
+
+The reveal MUST NOT be:
+
+* a perfect circle
+* a radial gradient spotlight
+* an oval
+* a rectangle
+* a straight split
+* a hard geometric shape
+
+Instead use an:
+
+## ORGANIC IRREGULAR FLUID MASK
+
+The reveal should feel like:
+
+* liquid
+* blob-like
+* asymmetric
+* slightly distorted
+* continuously morphing
+* soft around the edges
+* tactile
+* premium
+
+The supplied reference specifically calls for an irregular, liquid/blob-shaped reveal with continuously morphing edges and a feathered boundary.
+
+Target characteristics:
+
+* approximately 250–400px overall reveal size on desktop
+* soft feathered boundary
+* slight deformation
+* subtle inertia
+* slight cursor lag
+* smooth interpolation
+* stable 60fps target
+
+The cursor movement should feel like it is dragging or uncovering the hidden image.
+
+---
+
+# 4. CURSOR REVEAL POSITIONING
+
+The reveal mask follows the cursor.
+
+However, the mask itself must remain stable relative to the two portrait images.
+
+Do NOT move Image 1.
+
+Do NOT move Image 2.
+
+Do NOT transform the photographs independently.
+
+Only the mask position and shape should change.
+
+The supplied reference explicitly requires both images to remain aligned while only the mask moves and deforms.
+
+Use interpolation/damping so the reveal has a slight physical feel.
+
+Conceptually:
+
+cursor position
+↓
+target mask position
+↓
+interpolated mask position
+↓
+organic deformation
+↓
+revealed dark portrait
+
+---
+
+# 5. CURSOR OVER FACE
+
+When the organic reveal passes over my face, the visitor should clearly discover:
+
+* the mask
+* the darker expression
+* the green iris
+* darker styling
+
+This should create the feeling:
+
+"I just discovered another version of this person."
+
+The effect must preserve the underlying image everywhere else.
+
+Example:
+
+LEFT SIDE:
+light portrait
+
+CENTER FACE:
+organic reveal showing dark masked identity
+
+RIGHT SIDE:
+light portrait
+
+This is essential.
+
+Do not reveal the entire dark image simply because the cursor touched the face.
+
+---
+
+# 6. MOUSE LEAVE BEHAVIOR
+
+When the cursor leaves the hero:
+
+* hide Image 2 completely
+* restore Image 1 as the only visible hero portrait
+* remove the reveal mask
+* return to the normal state
+
+This behavior is specifically required by the supplied reference document.
+
+The visitor should be able to repeatedly enter and leave the hero and rediscover the alternate identity.
+
+---
+
+# 7. MOBILE CURSOR REPLACEMENT
+
+Mobile has no mouse cursor.
+
+Therefore use touch/finger position.
+
+On touch interaction:
+
+* Image 1 remains the base
+* Image 2 is revealed through the same organic mask
+* the mask follows the finger position
+* the effect remains smooth
+* the images remain perfectly aligned
+
+The supplied reference also explicitly specifies touch position as the mobile interaction mechanism.
+
+The implementation must not depend exclusively on mouse events.
+
+Support:
+
+* pointer events where practical
+* touch interaction
+* mouse interaction
+
+Prefer a unified pointer architecture.
+
+---
+
+# 8. SYSTEM B — TURN DARK MODE
+
+This is a completely different interaction.
+
+The top-right button is:
+
+## TURN DARK MODE
+
+When the user clicks/taps this button:
+
+DO NOT show the cursor reveal.
+
+DO NOT create a blob.
+
+DO NOT keep the light image as the dominant base.
+
+DO NOT make the dark identity appear only inside a small cursor region.
+
+Instead:
+
+## DIRECTLY REVEAL THE COMPLETE DARK HERO.
+
+The user should immediately enter the full dark identity.
+
+The resulting screen should show:
+
+* complete dark portrait
+* complete dark background
+* visible half-mask
+* emerald eyes
+* dark outfit
+* intense expression
+* cinematic shadows
+* green visual accents
+* dark typography treatment
+* complete alter-ego presentation
+
+This is a full hero mode transition.
+
+---
+
+# 9. TURN DARK MODE — VISUAL RESULT
+
+After clicking:
+
+LIGHT HERO
+↓
+DARK HERO
+
+The entire hero changes.
+
+The dark state should feel deliberate and immediate.
+
+The final dark state is NOT a cursor-reveal state.
+
+It is a complete visual composition.
+
+Conceptually:
+
+┌────────────────────────────────────────────┐
+│ DARK NAVIGATION                 LIGHT MODE │
+│                                            │
+│          SOFTWARE ENGINEER                 │
+│                                            │
+│              [FULL DARK                    │
+│                PORTRAIT]                   │
+│                                            │
+│         MASK + GREEN EYES                  │
+│                                            │
+└────────────────────────────────────────────┘
+
+The dark background itself becomes part of the identity.
+
+---
+
+# 10. DARK MODE BUTTON BEHAVIOR
+
+Initial label:
+
+TURN DARK MODE
+
+After activation:
+
+RETURN TO LIGHT
+
+Clicking RETURN TO LIGHT returns to the normal hero.
+
+The state must be deterministic.
+
+For example:
+
+LIGHT
+↓
+TURN DARK MODE
+↓
+DARK LOCKED
+
+and:
+
+DARK LOCKED
+↓
+RETURN TO LIGHT
+↓
+LIGHT
+
+Do not let cursor movement accidentally undo the locked dark mode.
+
+Do not allow hover behavior to fight the dark-mode state.
+
+---
+
+# 11. DARK MODE OVERRIDES CURSOR REVEAL
+
+This is very important.
+
+When dark mode is locked:
+
+* cursor reveal is disabled
+* blob mask is disabled
+* dark portrait is fully visible
+* full dark composition remains visible
+* mouse leaving the hero does nothing
+* moving around the face does nothing to the image state
+
+Dark mode has priority over cursor reveal.
+
+The state hierarchy should conceptually be:
+
+LIGHT
+↓
+CURSOR_REVEAL
+↓
+LIGHT
+
+OR
+
+LIGHT
+↓
+DARK_MODE_LOCKED
+
+Once DARK_MODE_LOCKED is active, cursor reveal is suspended.
+
+---
+
+# 12. RETURN TO LIGHT
+
+When RETURN TO LIGHT is clicked:
+
+* restore the original light portrait
+* restore normal background
+* restore normal typography styling
+* restore glasses
+* remove full dark identity
+* return to the normal light hero
+* re-enable cursor reveal
+
+After returning to light mode, moving the cursor across the hero should once again reveal Image 2 through the organic mask.
+
+---
+
+# 13. THREE PRIMARY HERO STATES
+
+Build the hero as an explicit state machine.
+
+### STATE 1 — LIGHT_DEFAULT
+
+* Image 1 visible
+* Image 2 hidden
+* cursor mask inactive
+* light background
+* normal typography
+* glasses visible
+
+### STATE 2 — CURSOR_REVEAL
+
+* Image 1 remains base
+* Image 2 visible only inside organic cursor mask
+* light background remains
+* dark image is locally revealed
+* cursor movement controls the reveal
+
+### STATE 3 — DARK_LOCKED
+
+* Image 2 fully visible
+* dark background visible
+* complete masked identity visible
+* green eyes visible
+* cursor reveal disabled
+* dark typography/UI active
+
+Optional transition state:
+
+### STATE 4 — TRANSITIONING
+
+Used only while animating between states.
+
+No race conditions between timelines.
+
+---
+
+# 14. HERO VISUAL HIERARCHY
+
+The hero should contain layers approximately like:
+
+1. background
+2. oversized typography
+3. Image 1
+4. Image 2
+5. organic reveal mask
+6. mask/eye overlays if required
+7. lighting overlays
+8. foreground typography
+9. navigation
+10. mode button
+11. cursor indicator
+
+However, implementation may change the exact DOM order when technically necessary.
+
+The visual result is what matters.
+
+---
+
+# 15. HERO TYPOGRAPHY
+
+The main identity statement should be:
+
+## SOFTWARE ENGINEER
+
+Do not simply center it above the photograph.
+
+Use editorial layering.
+
+Potential composition:
+
+SOFTWARE
+ENGINEER
+
+with typography partially:
+
+* behind the portrait
+* beside the portrait
+* partially overlapped by the portrait
+* subtly animated
+
+Typography should feel large, premium, and intentional.
+
+Avoid generic portfolio hero layouts.
+
+---
+
+# 16. PREMIUM CURSOR LANGUAGE
+
+Create a subtle custom cursor indicator if it improves the experience.
+
+Possible state:
+
+REVEAL
+
+when over the hero.
+
+But:
+
+* keep it small
+* keep it refined
+* avoid huge cursor graphics
+* do not obstruct the face
+* preserve native accessibility behavior where appropriate
+
+The reference document also recommends a refined cursor indicator rather than an oversized distracting cursor.
+
+---
+
+# 17. DARK IDENTITY ART DIRECTION
+
+The dark identity should be original but inspired by the following visual language:
+
+* Dr. Doom-inspired metallic menace
+* Loki-inspired emerald energy
+* cinematic antihero
+* dark luxury
+* futuristic identity
+* controlled metallic surfaces
+* dramatic shadows
+
+Do NOT copy copyrighted character costume designs.
+
+Create an original design.
+
+The dark portrait should contain:
+
+* no glasses
+* stronger expression
+* half-mask
+* dark clothing
+* subtle emerald eye color
+* dramatic lighting
+* cinematic contrast
+
+---
+
+# 18. EYE DESIGN
+
+The eyes require a separate treatment.
+
+Only the iris/center should become emerald.
+
+Do NOT make the entire eyeball green.
+
+Do NOT use a whole-face hue rotation.
+
+Conceptual structure:
+
+eye white
++
+iris
++
+pupil
++
+localized emerald glow
+
+The eye whites should remain realistic.
+
+The emerald effect should remain:
+
+* controlled
+* localized
+* cinematic
+* subtle enough to feel believable
+* bright enough to read
+
+---
+
+# 19. MASK SYSTEM
+
+The half-mask should ideally be separated from the portrait.
+
+Use:
+
+dark portrait
++
+SVG mask
++
+shadow layer
++
+highlight layer
++
+lighting layer
+
+This allows the mask to animate independently.
+
+Possible mask construction:
+
+* base metallic surface
+* darker edges
+* reflective highlight
+* shadow
+* subtle texture
+* controlled specular effect
+
+Do not make the mask cartoonish.
+
+The mask must look physically integrated into the face.
+
+---
+
+# 20. FACE ALIGNMENT
+
+The biggest technical risk is alignment.
+
+The light portrait and dark portrait must maintain identical:
+
+* face position
+* eye coordinates
+* head scale
+* head rotation
+* crop
+* body position
+
+The mask and eyes must be positioned relative to the portrait container rather than the browser viewport.
+
+Use normalized coordinates or another robust positioning system.
+
+The system must survive:
+
+* desktop
+* laptop
+* tablet
+* mobile
+
+without the mask drifting away from the face.
+
+---
+
+# 21. SCROLL TRANSITION
+
+The special hero identity system applies ONLY to the hero.
+
+Once the user scrolls beyond the hero:
+
+transition into the portfolio content.
+
+The remainder of the website should NOT retain:
+
+* cursor-reveal portrait
+* mask reveal
+* green-eye effect
+* revenge expression effect
+* character overlays
+
+Instead the portfolio becomes a premium dark-neutral developer portfolio.
+
+---
+
+# 22. BELOW-THE-FOLD DESIGN
+
+The content sections should be visually sophisticated but much calmer than the hero.
+
+Suggested palette:
+
+* graphite
+* charcoal
+* warm off-white
+* muted gray
+* restrained emerald
+
+Use green strategically.
+
+Do not make the whole portfolio neon green.
+
+Sections:
+
+* About
+* Skills
+* Projects
+* Resume
+* Contact
+
+---
+
+# 23. ABOUT POSITIONING
+
+The portfolio should primarily position me as:
+
+# SOFTWARE ENGINEER
+
+Do not make hardware/IoT the dominant identity.
+
+The RFID/IoT project may demonstrate systems/engineering breadth, but the overall branding must be software-first.
+
+The About section should answer:
+
+* Who am I?
+* What do I build?
+* What kind of engineer am I?
+* What am I interested in?
+* What am I becoming?
+
+Use my resume and supplied information as the authoritative source.
+
+Never invent experience.
+
+---
+
+# 24. PROJECTS
+
+Projects should communicate engineering thinking.
+
+For each project, consider:
+
+* problem
+* approach
+* architecture
+* technologies
+* engineering decisions
+* result
+* role
+
+Projects should not simply be represented by:
+
+"Built X using Y."
+
+Create stronger visual storytelling.
+
+Potential interaction:
+
+PROJECT 01
+PROJECT NAME
+↓
+project visual
+↓
+hover
+↓
+stack / metadata
+↓
+click
+↓
+case study
+
+---
+
+# 25. RESUME
+
+Use the supplied resume as the authoritative source.
+
+Add a Resume section with:
+
+VIEW RESUME
+DOWNLOAD PDF
+
+The portfolio itself should expose important information instead of requiring recruiters to download the PDF.
+
+Do not fabricate missing information.
+
+---
+
+# 26. CONTACT
+
+Keep the final contact section simple.
+
+Potential structure:
+
+LET'S BUILD SOMETHING.
+
+Email
+LinkedIn
+GitHub
+
+A simple mailto workflow is acceptable initially.
+
+Do not build a backend unless necessary.
+
+---
+
+# 27. REQUIRED TECHNOLOGY DISCOVERY
+
+Before coding, perform a complete technical audit.
+
+Determine:
+
+## DEVELOPMENT TOOLS
+
+What editor/IDE
+What runtime
+What package manager
+What version-control tools
+What browser/devtools
+
+## FRONTEND TECHNOLOGY
+
+What HTML/CSS/JS architecture
+What animation engine
+What mask technology
+What image-loading strategy
+What responsive system
+
+## IMAGE PIPELINE
+
+What image-generation/editing system
+What asset optimization tool
+What image format
+What dimensions
+What alignment workflow
+
+## DEPLOYMENT
+
+What hosting
+What source-control integration
+What domain configuration
+What build system
+
+Do not assume tools are installed.
+
+---
+
+# 28. REQUIRED PREFLIGHT — DO THIS FIRST
+
+Before writing major code, produce a complete discovery report.
+
+## A. APPLICATIONS REQUIRED
+
+Make a list of every application we will use.
+
+Include:
+
+* development tools
+* image generation/editing tools
+* image optimization tools
+* design/asset tools
+* testing tools
+* deployment tools
+
+For each state:
+
+* why it is needed
+* whether mandatory/optional
+* installation/setup requirement
+
+---
+
+# 29. REQUIRED PREFLIGHT — WEBSITES / ONLINE SERVICES
+
+Make a separate list of every website/service we may use.
+
+For each state:
+
+* purpose
+* whether it requires an account
+* whether it requires an API key
+* whether it is optional
+* whether a local alternative exists
+
+Do not add unnecessary services.
+
+---
+
+# 30. REQUIRED PREFLIGHT — DEPENDENCIES
+
+Create a complete dependency matrix.
+
+For every feature, provide:
+
+FEATURE
++
+FILES REQUIRED
++
+NPM DEPENDENCIES
++
+ASSET DEPENDENCIES
++
+EXTERNAL TOOL DEPENDENCIES
++
+PREREQUISITES
++
+TESTING REQUIREMENTS
+
+Cover:
+
+* Vite setup
+* hero
+* cursor reveal
+* organic mask
+* dark mode
+* portrait transition
+* mask
+* eyes
+* cursor
+* navigation
+* scrolling
+* sections
+* responsive behavior
+* accessibility
+* performance
+* SEO
+* deployment
+
+---
+
+# 31. REQUIRED PREFLIGHT — IMAGE GENERATION
+
+Before implementing the hero, determine the exact asset pipeline for creating:
+
+### LIGHT IMAGE
+
+Use my supplied photo.
+
+### DARK IMAGE
+
+Create an aligned alternate portrait.
+
+The dark image should preserve my:
+
+* identity
+* facial structure
+* camera angle
+* composition
+* head position
+* body position
+* framing
+
+but change:
+
+* glasses
+* outfit
+* expression
+* mask
+* lighting
+
+The image-generation process must be treated as a production asset workflow, not an afterthought.
+
+---
+
+# 32. REQUIRED PREFLIGHT — ASSET CHECKLIST
+
+Create an asset checklist.
+
+Include:
+
+* light hero portrait
+* dark hero portrait
+* mask SVG
+* eye overlays
+* favicon
+* resume
+* project images
+* icons
+* fonts if needed
+* social preview image
+
+For every asset state:
+
+* source
+* required format
+* expected dimensions
+* optimization method
+* destination path
+
+---
+
+# 33. RECOMMENDED PROJECT ARCHITECTURE
+
+Use a maintainable structure similar to:
+
+portfolio/
+│
+├── index.html
+├── package.json
+├── README.md
+├── .gitignore
+│
+├── public/
+│
+├── src/
+│   ├── css/
+│   │   ├── variables.css
+│   │   ├── style.css
+│   │   ├── hero.css
+│   │   ├── animations.css
+│   │   └── responsive.css
+│   │
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── hero.js
+│   │   ├── reveal.js
+│   │   ├── darkMode.js
+│   │   ├── cursor.js
+│   │   ├── scroll.js
+│   │   └── animations.js
+│   │
+│   └── components/
+│
+├── assets/
+│   ├── images/
+│   ├── mask/
+│   ├── eyes/
+│   ├── icons/
+│   └── resume/
+│
+└── docs/
+
+Adapt this structure if the actual implementation requires something better.
+
+---
+
+# 34. CSS ARCHITECTURE
+
+Use CSS custom properties for:
+
+* colors
+* spacing
+* typography
+* animation timing
+* z-index
+* hero measurements
+* breakpoints
+* mask dimensions
+
+Separate:
+
+* global styling
+* hero styling
+* animation styling
+* responsive rules
+
+Avoid a giant stylesheet.
+
+---
+
+# 35. JAVASCRIPT ARCHITECTURE
+
+Separate responsibilities.
+
+For example:
+
+### hero.js
+
+Hero initialization and state management.
+
+### reveal.js
+
+Cursor/touch organic image reveal.
+
+### darkMode.js
+
+Full dark-mode transition and locking.
+
+### cursor.js
+
+Custom cursor behavior.
+
+### scroll.js
+
+Scroll-based section behavior.
+
+### animations.js
+
+Reusable animation utilities.
+
+Avoid global spaghetti state.
+
+---
+
+# 36. ANIMATION ARCHITECTURE
+
+Preferred animation system:
+
+GSAP
+
+Potential:
+
+ScrollTrigger
+
+Optional:
+
+Lenis
+
+Use them only where beneficial.
+
+Do not create unnecessary animation libraries.
+
+The cursor-reveal system should be optimized for continuous movement.
+
+The dark-mode transition can use a dedicated timeline.
+
+The two systems must remain logically separate.
+
+---
+
+# 37. PERFORMANCE REQUIREMENTS
+
+The cursor reveal runs continuously.
+
+Therefore optimize it aggressively.
+
+Avoid:
+
+* expensive React-style rerenders
+* unnecessary layout measurements
+* repeated DOM queries
+* heavyweight blur
+* unnecessarily large masks
+* unoptimized images
+
+Prefer:
+
+* transform-based updates
+* efficient SVG/canvas masking
+* requestAnimationFrame where appropriate
+* interpolation
+* preloaded critical assets
+
+Target smooth interaction.
+
+---
+
+# 38. RESPONSIVE BEHAVIOR
+
+### DESKTOP
+
+Cursor reveal is primary interactive discovery.
+
+### TABLET
+
+Pointer/touch support depending on device.
+
+### MOBILE
+
+Finger touch controls reveal.
+
+Dark-mode button remains fully accessible.
+
+No important information can depend exclusively on hover.
+
+---
+
+# 39. ACCESSIBILITY
+
+Implement:
+
+* semantic HTML
+* accessible navigation
+* keyboard support
+* focus states
+* appropriate button semantics
+* alt text
+* contrast
+* reduced motion
+* touch accessibility
+
+Support:
+
+`prefers-reduced-motion`
+
+With reduced motion:
+
+* simplify cursor movement
+* minimize mask morphing
+* minimize transition duration
+* preserve functionality
+
+---
+
+# 40. SEO
+
+Implement:
+
+* page title
+* meta description
+* semantic headings
+* Open Graph
+* favicon
+* canonical URL placeholder
+* social preview metadata
+* appropriate indexing configuration
+
+---
+
+# 41. PERFORMANCE BUDGET
+
+Treat the hero as the primary performance area.
+
+Use:
+
+* AVIF/WebP
+* responsive image sizes
+* compression
+* lazy loading below the fold
+* selective preloading
+* optimized SVGs
+
+Do not preload every asset.
+
+---
+
+# 42. BROWSER TEST MATRIX
+
+Test:
+
+Chrome
+Edge
+Firefox
+Safari
+Android Chrome
+
+At approximately:
+
+1920×1080
+1536×864
+1440×900
+1280×720
+1024×768
+768×1024
+390×844
+
+Particularly verify:
+
+* portrait alignment
+* mask alignment
+* eye alignment
+* cursor reveal
+* touch reveal
+* dark-mode switching
+* scroll transition
+
+---
+
+# 43. GIT WORKFLOW
+
+Create Git history incrementally.
+
+Suggested commits:
+
+1. project-foundation
+2. global-design-system
+3. base-layout
+4. light-hero
+5. aligned-dark-portrait
+6. cursor-reveal-system
+7. organic-mask
+8. dark-mode-system
+9. mask-and-eye-system
+10. hero-polish
+11. portfolio-sections
+12. responsive
+13. accessibility
+14. optimization
+15. seo
+16. production-build
+17. deployment
+
+---
+
+# 44. CODE QUALITY
+
+Code must be:
+
+* maintainable
+* modular
+* readable
+* production-quality
+* appropriately commented
+* free of dead code
+* free of unused imports
+* free of unused dependencies
+* free of console errors
+
+Do not over-engineer.
+
+Do not introduce technology without a reason.
+
+---
+
+# 45. NO UNNECESSARY WEBGL
+
+Do NOT begin with Three.js/WebGL.
+
+First implement using:
+
+HTML
++
+CSS
++
+SVG
++
+GSAP
++
+optimized images
+
+Only introduce WebGL if testing proves that the desired effect cannot be achieved cleanly otherwise.
+
+---
+
+# 46. IMAGE GENERATION QUALITY CONTROL
+
+The dark image must pass a visual quality check before being integrated deeply into the hero.
+
+Check:
+
+* face identity
+* eye placement
+* mask placement
+* crop
+* proportions
+* lighting
+* head position
+* composition
+
+If alignment is bad, fix the asset before building the advanced animation around it.
+
+---
+
+# 47. PHASED EXECUTION
+
+Build in this exact conceptual order:
+
+PHASE 0
+Preflight / discovery
+
+↓
+
+PHASE 1
+Development environment
+
+↓
+
+PHASE 2
+Asset preparation
+
+↓
+
+PHASE 3
+Base page
+
+↓
+
+PHASE 4
+Design system
+
+↓
+
+PHASE 5
+Light hero
+
+↓
+
+PHASE 6
+Aligned dark image
+
+↓
+
+PHASE 7
+Cursor reveal
+
+↓
+
+PHASE 8
+Organic mask refinement
+
+↓
+
+PHASE 9
+Dark-mode full reveal
+
+↓
+
+PHASE 10
+Mask and eye detailing
+
+↓
+
+PHASE 11
+Hero state machine
+
+↓
+
+PHASE 12
+Navigation
+
+↓
+
+PHASE 13
+Portfolio content
+
+↓
+
+PHASE 14
+Responsive
+
+↓
+
+PHASE 15
+Accessibility
+
+↓
+
+PHASE 16
+Performance
+
+↓
+
+PHASE 17
+SEO
+
+↓
+
+PHASE 18
+Testing
+
+↓
+
+PHASE 19
+Production build
+
+↓
+
+PHASE 20
+Deployment
+
+↓
+
+PHASE 21
+Final polish
+
+---
+
+# 48. BEFORE EACH PHASE
+
+Before implementation:
+
+1. explain the objective
+2. list files to change
+3. list dependencies
+4. list prerequisites
+5. implement
+6. validate
+7. test
+8. report result
+9. identify issues
+10. only then continue
+
+Do not modify unrelated areas.
+
+---
+
+# 49. DEVELOPMENT RULE
+
+Do not build everything in one shot.
+
+Use short, verifiable milestones.
+
+At every stage the application should remain runnable.
+
+Do not move forward while introducing unresolved structural problems.
+
+---
+
+# 50. DEPLOYMENT
+
+Preferred production flow:
+
+GitHub
+↓
+Vercel
+↓
+custom domain
+
+Prepare:
+
+* production build
+* environment variables
+* correct asset paths
+* PDF handling
+* SEO metadata
+* favicon
+* social preview
+* HTTPS
+* responsive layout
+
+Document deployment in README.md.
+
+---
+
+# 51. FINAL SUCCESS CONDITIONS
+
+The project is complete only when all of the following are true.
+
+## HERO
+
+The initial hero shows my normal/light identity.
+
+## CURSOR REVEAL
+
+Moving the cursor over the hero reveals the dark masked identity only inside an organic moving mask.
+
+The rest of the image remains light.
+
+There is NO global dark-mode transition during normal cursor reveal.
+
+## FACE REVEAL
+
+When the organic mask crosses the face, the visitor sees the masked face and emerald eyes.
+
+## MOUSE LEAVE
+
+The dark image disappears completely and the light identity returns.
+
+## MOBILE
+
+Touch position controls the organic reveal.
+
+## DARK MODE
+
+Clicking/tapping TURN DARK MODE immediately reveals the COMPLETE dark hero.
+
+That means:
+
+* full dark image
+* dark background
+* mask
+* green eyes
+* dark clothing
+* intense expression
+* complete dark visual composition
+
+The cursor blob is NOT used for this state.
+
+## DARK MODE LOCK
+
+Once activated, moving the cursor does not restore the light image.
+
+## RETURN TO LIGHT
+
+Clicking the return control restores the light hero and re-enables cursor reveal.
+
+## SCROLL
+
+Scrolling below the hero removes the special identity effects and reveals the normal portfolio.
+
+## PORTFOLIO
+
+About, Skills, Projects, Resume, Contact all work.
+
+## RESPONSIVE
+
+The experience works on desktop, tablet, and mobile.
+
+## ACCESSIBILITY
+
+Keyboard navigation and reduced motion work.
+
+## PERFORMANCE
+
+Hero interaction remains smooth.
+
+## PRODUCTION
+
+The application builds successfully and can be deployed.
+
+---
+
+# 52. ABSOLUTE DESIGN PRINCIPLE
+
+The hero must communicate:
+
+### "There is another identity hidden inside the portrait."
+
+Cursor interaction is about:
+
+## DISCOVERY
+
+The user explores the photograph and uncovers pieces of the dark identity.
+
+Dark mode is about:
+
+## TRANSFORMATION
+
+The user deliberately chooses to reveal the complete alter ego.
+
+These are NOT the same interaction.
+
+The distinction must remain intact throughout the implementation.
+
+---
+
+# 53. FINAL EXPERIENCE
+
+The final visitor journey should feel approximately like this:
+
+PAGE LOAD
+
+→ clean premium portrait
+
+→ "SOFTWARE ENGINEER"
+
+→ visitor moves cursor across hero
+
+→ organic liquid reveal follows cursor
+
+→ hidden masked identity appears locally
+
+→ visitor discovers green eyes/mask
+
+→ cursor leaves
+
+→ normal portrait returns
+
+→ visitor clicks TURN DARK MODE
+
+→ entire hero transforms into complete dark identity
+
+→ full masked portrait
+
+→ dark background
+
+→ green eyes
+
+→ cinematic typography
+
+→ visitor scrolls
+
+→ dark-neutral professional software portfolio
+
+→ About
+
+→ Skills
+
+→ Projects
+
+→ Resume
+
+→ Contact
+
+→ deployment-ready professional portfolio
+
+---
+
+# 54. FIRST THING YOU MUST DO
+
+DO NOT START BY WRITING THE ENTIRE WEBSITE.
+
+First produce:
+
+## 1. COMPLETE APP / TOOL LIST
+
+## 2. COMPLETE WEBSITE / SERVICE LIST
+
+## 3. IMAGE-GENERATION / IMAGE-EDITING PLAN
+
+## 4. COMPLETE DEPENDENCY MATRIX
+
+## 5. PROJECT FILE STRUCTURE
+
+## 6. REQUIRED ASSETS
+
+## 7. REQUIRED USER INPUTS
+
+## 8. IMPLEMENTATION PHASES
+
+## 9. TECHNICAL RISKS
+
+## 10. RECOMMENDED EXECUTION ORDER
+
+Only after that should implementation begin.
+
+---
+
+# 55. IMPORTANT FINAL INSTRUCTION
+
+When making technical decisions, prioritize:
+
+1. visual correctness
+2. interaction correctness
+3. maintainability
+4. performance
+5. accessibility
+6. simplicity
+
+Do not sacrifice the core interaction to make the architecture unnecessarily complicated.
+
+The most important distinction in this entire project is:
+
+**CURSOR = LOCAL ORGANIC DISCOVERY**
+
+**TURN DARK MODE = FULL HERO TRANSFORMATION**
+
+Keep those two systems separate at both the design level and code architecture level.
+
+Build this as a polished production portfolio, not as a prototype.
