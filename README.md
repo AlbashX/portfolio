@@ -13,8 +13,7 @@ Cinematic interactive portfolio, engineered to high-end production standards.
 
 ## Live Demo
 
-Experience the live, interactive portfolio here: <a href="https://vercel.app" target="_blank" rel="noopener noreferrer">syedalbash-dev.vercel.app</a>
-
+Experience the live, interactive portfolio here: [syedalbash-dev.vercel.app](https://syedalbash-dev.vercel.app/)
 
 
 
