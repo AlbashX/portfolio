@@ -11,9 +11,8 @@ Cinematic interactive portfolio, engineered to high-end production standards.
 - **Performant Entrances:** Zero-dependency (no GSAP) scroll-triggered animations powered by `IntersectionObserver` and hardware-accelerated CSS transitions.
 
 
-Live Demo
+Experience the live, interactive portfolio here: [syedalbash-dev.vercel.app](https://vercel.app)
 
-Experience the live, interactive portfolio here: syedalbash-dev.vercel.app
 
 ## Requirements
 
