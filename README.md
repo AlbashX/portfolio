@@ -13,7 +13,8 @@ Cinematic interactive portfolio, engineered to high-end production standards.
 
 ## Live Demo
 
-[![Live Demo](https://shields.io)](https://vercel.app)
+Experience the live, interactive portfolio here: <a href="https://vercel.app" target="_blank" rel="noopener noreferrer">syedalbash-dev.vercel.app</a>
+
 
 
 
